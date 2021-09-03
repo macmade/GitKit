@@ -25,10 +25,12 @@
 import Foundation
 import libgit2
 
-open class Repository
+public class Repository
 {
-    public  let url:        URL
-    private var repository: OpaquePointer!
+    public                let url:        URL
+    public private( set ) var branches:   [ Branch ] = []
+    public private( set ) var remotes:    [ Remote ] = []
+    private               var repository: OpaquePointer!
     
     public convenience init( path: String ) throws
     {
@@ -37,18 +39,62 @@ open class Repository
     
     public init( url: URL ) throws
     {
+        var repository: OpaquePointer!
+        var it:         OpaquePointer!
+        var ref:        OpaquePointer!
+        var type:       git_branch_t!
+        
         git_libgit2_init()
         
-        self.url = url
-        
-        if git_repository_open( &self.repository, nil ) != 0 || self.repository == nil
+        if git_repository_open( &repository, nil ) != 0 || repository == nil
         {
-            throw Error( "Cannot open Git repository: \( url.path )" )
+            throw Error( "Cannot open repository: \( url.path )" )
+        }
+        
+        if git_branch_iterator_new( &it, self.repository, GIT_BRANCH_ALL ) != 0 || it == nil
+        {
+            throw Error( "Cannot iterate branches: \( url.path )" )
+        }
+        
+        defer
+        {
+            git_branch_iterator_free( it )
+        }
+        
+        self.url        = url
+        self.repository = repository
+        
+        while git_branch_next( &ref, &type, it ) == 0
+        {
+            if let ref = ref
+            {
+                self.branches.append( try Branch( repository: self, ref: ref ) )
+            }
+        }
+        
+        var names = git_strarray()
+        
+        if git_remote_list( &names , repository ) == 0
+        {
+            for i in 0 ..< names.count
+            {
+                var remote: OpaquePointer!
+                
+                if git_remote_lookup( &remote, repository, names.strings[ i ] ) != 0 || remote == nil
+                {
+                    throw Error( "Cannot lookup remote: \( url.path )" )
+                }
+                
+                self.remotes.append( try Remote( repository: self, remote: remote ) )
+            }
         }
     }
     
     deinit
     {
+        self.branches.forEach { git_reference_free( $0.ref ) }
+        self.remotes.forEach  { git_remote_free( $0.remote ) }
+        
         git_repository_free( self.repository )
     }
 }

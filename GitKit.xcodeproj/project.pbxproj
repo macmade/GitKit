@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		055FD8AC26E218BB0034048C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5D84126E2105500C9888C /* Repository.swift */; };
 		055FD8AF26E21CB30034048C /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055FD8AE26E21CB30034048C /* Error.swift */; };
+		055FD8B126E21F160034048C /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055FD8B026E21F160034048C /* Branch.swift */; };
+		055FD8B326E221BC0034048C /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055FD8B226E221BC0034048C /* Remote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +108,8 @@
 		055FD8A426E218B50034048C /* GitKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GitKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		055FD8A726E218B50034048C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		055FD8AE26E21CB30034048C /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		055FD8B026E21F160034048C /* Branch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
+		055FD8B226E221BC0034048C /* Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
 		05A5D73C26E20BEB00C9888C /* Release - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release - ccache.xcconfig"; sourceTree = "<group>"; };
 		05A5D73D26E20BEB00C9888C /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		05A5D73E26E20BEB00C9888C /* Debug - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - ccache.xcconfig"; sourceTree = "<group>"; };
@@ -299,6 +303,8 @@
 			isa = PBXGroup;
 			children = (
 				05A5D84126E2105500C9888C /* Repository.swift */,
+				055FD8B026E21F160034048C /* Branch.swift */,
+				055FD8B226E221BC0034048C /* Remote.swift */,
 				055FD8AE26E21CB30034048C /* Error.swift */,
 			);
 			path = Classes;
@@ -516,7 +522,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				055FD8AF26E21CB30034048C /* Error.swift in Sources */,
+				055FD8B126E21F160034048C /* Branch.swift in Sources */,
 				055FD8AC26E218BB0034048C /* Repository.swift in Sources */,
+				055FD8B326E221BC0034048C /* Remote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
