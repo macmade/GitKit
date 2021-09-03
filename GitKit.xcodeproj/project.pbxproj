@@ -538,17 +538,23 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/libgit2/include";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/libgit2/include",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = GitKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/libgit2/build";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/libgit2/build",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.GitKit";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/libgit2";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/libgit2 $(inherited)";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -561,17 +567,23 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/libgit2/include";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/libgit2/include",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = GitKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/libgit2/build";
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/libgit2/build",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.GitKit";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/libgit2";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/libgit2 $(inherited)";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
