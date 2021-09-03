@@ -22,18 +22,10 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-module libgit2
+import Foundation
+
+@frozen public enum Either< T1, T2 >
 {
-    header "include/git2/global.h"
-    header "include/git2/repository.h"
-    header "include/git2/branch.h"
-    header "include/git2/remote.h"
-    header "include/git2/refs.h"
-    header "include/git2/commit.h"
-    
-    export *
-    
-    link "git2"
-    link "iconv"
-    link "z"
+    case first(  T1 )
+    case second( T2 )
 }

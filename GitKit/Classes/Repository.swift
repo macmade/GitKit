@@ -30,7 +30,8 @@ public class Repository
     public                let url:        URL
     public private( set ) var branches:   [ Branch ] = []
     public private( set ) var remotes:    [ Remote ] = []
-    private               var repository: OpaquePointer!
+    public private( set ) var head:       Either< Branch, Commit >?
+    internal              var repository: OpaquePointer!
     
     public convenience init( path: String ) throws
     {
@@ -42,6 +43,7 @@ public class Repository
         var repository: OpaquePointer!
         var it:         OpaquePointer!
         var ref:        OpaquePointer!
+        var head:       OpaquePointer!
         var type      = git_branch_t( 0 )
         
         git_libgit2_init()
@@ -64,6 +66,20 @@ public class Repository
         self.url        = url
         self.repository = repository
         
+        if git_repository_head( &head, repository ) != 0 || head == nil
+        {
+            throw Error( "Cannot get head: \( url.path )" )
+        }
+        
+        if let branch = try? Branch( repository: self, ref: head )
+        {
+            self.head = .first( branch )
+        }
+        else if let commit = try? Commit( repository: self, ref: head )
+        {
+            self.head = .second( commit )
+        }
+        
         while git_branch_next( &ref, &type, it ) == 0
         {
             if let ref = ref
@@ -74,7 +90,7 @@ public class Repository
         
         var names = git_strarray()
         
-        if git_remote_list( &names , repository ) == 0
+        if git_remote_list( &names, repository ) == 0
         {
             for i in 0 ..< names.count
             {
@@ -92,9 +108,6 @@ public class Repository
     
     deinit
     {
-        self.branches.forEach { git_reference_free( $0.ref ) }
-        self.remotes.forEach  { git_remote_free( $0.remote ) }
-        
         git_repository_free( self.repository )
     }
 }

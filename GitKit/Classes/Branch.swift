@@ -28,7 +28,7 @@ import libgit2
 public class Branch
 {
     public                     let name:       String
-    public                     let ref:        OpaquePointer
+    private                    let ref:        OpaquePointer
     public private( set ) weak var repository: Repository?
     
     public init( repository: Repository, ref: OpaquePointer ) throws
@@ -43,5 +43,10 @@ public class Branch
         self.repository = repository
         self.ref        = ref
         self.name       = String( cString: name )
+    }
+    
+    deinit
+    {
+        git_reference_free( self.ref )
     }
 }

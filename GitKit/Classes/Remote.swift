@@ -27,12 +27,17 @@ import libgit2
 
 public class Remote
 {
-    public                     let remote:     OpaquePointer
+    private                    let remote:     OpaquePointer
     public private( set ) weak var repository: Repository?
     
     public init( repository: Repository, remote: OpaquePointer ) throws
     {
         self.repository = repository
         self.remote     = remote
+    }
+    
+    deinit
+    {
+        git_remote_free( self.remote )
     }
 }
