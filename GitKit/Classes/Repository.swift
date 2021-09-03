@@ -42,16 +42,16 @@ public class Repository
         var repository: OpaquePointer!
         var it:         OpaquePointer!
         var ref:        OpaquePointer!
-        var type:       git_branch_t!
+        var type      = git_branch_t( 0 )
         
         git_libgit2_init()
         
-        if git_repository_open( &repository, nil ) != 0 || repository == nil
+        if git_repository_open( &repository, url.path.cString( using: .utf8 ) ) != 0 || repository == nil
         {
             throw Error( "Cannot open repository: \( url.path )" )
         }
         
-        if git_branch_iterator_new( &it, self.repository, GIT_BRANCH_ALL ) != 0 || it == nil
+        if git_branch_iterator_new( &it, repository, GIT_BRANCH_ALL ) != 0 || it == nil
         {
             throw Error( "Cannot iterate branches: \( url.path )" )
         }
