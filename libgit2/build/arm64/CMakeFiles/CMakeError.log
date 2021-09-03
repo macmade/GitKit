@@ -1,0 +1,237 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc 
+Build flags: -arch;arm64;-mmacosx-version-min=10.13;-stdlib=libc++
+Id flags:  
+
+The output was:
+1
+ld: library not found for -lSystem
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIM failed with the following output:
+Change Dir: /Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/make/bin/make cmTC_dc705/fast && make[1]: Entering directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+/usr/local/make/bin/make  -f CMakeFiles/cmTC_dc705.dir/build.make CMakeFiles/cmTC_dc705.dir/build
+make[2]: Entering directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dc705.dir/src.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DHAVE_STRUCT_STAT_ST_MTIM  -arch arm64 -mmacosx-version-min=10.13 -stdlib=libc++  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -o CMakeFiles/cmTC_dc705.dir/src.c.o -c /Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp/src.c
+/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp/src.c:7:36: error: no member named 'st_mtim' in 'struct stat'
+  (void)sizeof(((struct stat *)0)->st_mtim);
+               ~~~~~~~~~~~~~~~~~~  ^
+1 error generated.
+make[2]: *** [CMakeFiles/cmTC_dc705.dir/build.make:85: CMakeFiles/cmTC_dc705.dir/src.c.o] Error 1
+make[2]: Leaving directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+make[1]: *** [Makefile:140: cmTC_dc705/fast] Error 2
+make[1]: Leaving directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtim);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_MTIME_NSEC failed with the following output:
+Change Dir: /Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/make/bin/make cmTC_70e54/fast && make[1]: Entering directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+/usr/local/make/bin/make  -f CMakeFiles/cmTC_70e54.dir/build.make CMakeFiles/cmTC_70e54.dir/build
+make[2]: Entering directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_70e54.dir/src.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DHAVE_STRUCT_STAT_MTIME_NSEC  -arch arm64 -mmacosx-version-min=10.13 -stdlib=libc++  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -o CMakeFiles/cmTC_70e54.dir/src.c.o -c /Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp/src.c
+/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp/src.c:6:36: error: no member named 'st_mtime_nsec' in 'struct stat'; did you mean 'st_mtimespec'?
+  (void)sizeof(((struct stat *)0)->st_mtime_nsec);
+                                   ^~~~~~~~~~~~~
+                                   st_mtimespec
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/usr/include/sys/stat.h:182:13: note: 'st_mtimespec' declared here
+struct stat __DARWIN_STRUCT_STAT64;
+            ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/usr/include/sys/stat.h:166:2: note: expanded from macro '__DARWIN_STRUCT_STAT64'
+        __DARWIN_STRUCT_STAT64_TIMES \
+        ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/usr/include/sys/stat.h:130:18: note: expanded from macro '__DARWIN_STRUCT_STAT64_TIMES'
+        struct timespec st_mtimespec;           /* time of last data modification */ \
+                        ^
+1 error generated.
+make[2]: *** [CMakeFiles/cmTC_70e54.dir/build.make:85: CMakeFiles/cmTC_70e54.dir/src.c.o] Error 1
+make[2]: Leaving directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+make[1]: *** [Makefile:140: cmTC_70e54/fast] Error 2
+make[1]: Leaving directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_nsec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test IS_WC99_C11_COMPAT_SUPPORTED failed with the following output:
+Change Dir: /Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/make/bin/make cmTC_c4f32/fast && make[1]: Entering directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+/usr/local/make/bin/make  -f CMakeFiles/cmTC_c4f32.dir/build.make CMakeFiles/cmTC_c4f32.dir/build
+make[2]: Entering directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c4f32.dir/src.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DIS_WC99_C11_COMPAT_SUPPORTED  -D_GNU_SOURCE -arch arm64 -mmacosx-version-min=10.13 -stdlib=libc++ -Werror -Wno-error -Wall -Wextra -Wdocumentation -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc11-extensions  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk   -Wc99-c11-compat -o CMakeFiles/cmTC_c4f32.dir/src.c.o -c /Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp/src.c
+warning: unknown warning option '-Wc99-c11-compat' [-Wunknown-warning-option]
+1 warning generated.
+Linking C executable cmTC_c4f32
+/opt/homebrew/Cellar/cmake/3.19.6/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c4f32.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -D_GNU_SOURCE -arch arm64 -mmacosx-version-min=10.13 -stdlib=libc++ -Werror -Wno-error -Wall -Wextra -Wdocumentation -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc11-extensions  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_c4f32.dir/src.c.o -o cmTC_c4f32 
+make[2]: Leaving directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Determining if the prototype qsort_r exists for HAVE_QSORT_R_GNU failed with the following output:
+Change Dir: /Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/make/bin/make cmTC_f5c11/fast && make[1]: Entering directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+/usr/local/make/bin/make  -f CMakeFiles/cmTC_f5c11.dir/build.make CMakeFiles/cmTC_f5c11.dir/build
+make[2]: Entering directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f5c11.dir/CheckPrototypeDefinition.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -D_GNU_SOURCE -arch arm64 -mmacosx-version-min=10.13 -stdlib=libc++ -Werror -Wno-error -Wall -Wextra -Wdocumentation -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc11-extensions -Wformat -Wformat-security -Wmissing-declarations  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -o CMakeFiles/cmTC_f5c11.dir/CheckPrototypeDefinition.c.o -c /Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c
+/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:14:6: error: conflicting types for 'qsort_r'
+void qsort_r(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *, void *), void *arg) {
+     ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk/usr/include/stdlib.h:339:7: note: previous declaration is here
+void     qsort_r(void *__base, size_t __nel, size_t __width, void *,
+         ^
+1 error generated.
+make[2]: *** [CMakeFiles/cmTC_f5c11.dir/build.make:85: CMakeFiles/cmTC_f5c11.dir/CheckPrototypeDefinition.c.o] Error 1
+make[2]: Leaving directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+make[1]: *** [Makefile:140: cmTC_f5c11/fast] Error 2
+make[1]: Leaving directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+
+
+
+#include <stdlib.h>
+
+
+static void cmakeRequireSymbol(int dummy, ...) {
+  (void) dummy;
+}
+
+static void checkSymbol(void) {
+#ifndef qsort_r
+  cmakeRequireSymbol(0, &qsort_r);
+#endif
+}
+
+void qsort_r(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *, void *), void *arg) {
+  return ;
+}
+
+#ifdef __CLASSIC_C__
+int main() {
+  int ac;
+  char*av[];
+#else
+int main(int ac, char *av[]) {
+#endif
+  checkSymbol();
+  if (ac > 1000) {
+    return *av[0];
+  }
+  return 0;
+}
+
+
+Determining if the function qsort_s exists failed with the following output:
+Change Dir: /Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/make/bin/make cmTC_c36d1/fast && make[1]: Entering directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+/usr/local/make/bin/make  -f CMakeFiles/cmTC_c36d1.dir/build.make CMakeFiles/cmTC_c36d1.dir/build
+make[2]: Entering directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c36d1.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -D_GNU_SOURCE -arch arm64 -mmacosx-version-min=10.13 -stdlib=libc++ -Werror -Wno-error -Wall -Wextra -Wdocumentation -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc11-extensions -Wformat -Wformat-security -Wmissing-declarations -DCHECK_FUNCTION_EXISTS=qsort_s -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -o CMakeFiles/cmTC_c36d1.dir/CheckFunctionExists.c.o -c /opt/homebrew/Cellar/cmake/3.19.6/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c36d1
+/opt/homebrew/Cellar/cmake/3.19.6/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c36d1.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -D_GNU_SOURCE -arch arm64 -mmacosx-version-min=10.13 -stdlib=libc++ -Werror -Wno-error -Wall -Wextra -Wdocumentation -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc11-extensions -Wformat -Wformat-security -Wmissing-declarations -DCHECK_FUNCTION_EXISTS=qsort_s -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_c36d1.dir/CheckFunctionExists.c.o -o cmTC_c36d1 
+Undefined symbols for architecture arm64:
+  "_qsort_s", referenced from:
+      _main in CheckFunctionExists.c.o
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[2]: *** [CMakeFiles/cmTC_c36d1.dir/build.make:106: cmTC_c36d1] Error 1
+make[2]: Leaving directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+make[1]: *** [Makefile:140: cmTC_c36d1/fast] Error 2
+make[1]: Leaving directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the function clock_gettime exists in the rt failed with the following output:
+Change Dir: /Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/make/bin/make cmTC_0c057/fast && make[1]: Entering directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+/usr/local/make/bin/make  -f CMakeFiles/cmTC_0c057.dir/build.make CMakeFiles/cmTC_0c057.dir/build
+make[2]: Entering directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0c057.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -D_GNU_SOURCE -arch arm64 -mmacosx-version-min=10.13 -stdlib=libc++ -Werror -Wno-error -Wall -Wextra -Wdocumentation -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc11-extensions -Wformat -Wformat-security -Wmissing-declarations -DCHECK_FUNCTION_EXISTS=clock_gettime -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -o CMakeFiles/cmTC_0c057.dir/CheckFunctionExists.c.o -c /opt/homebrew/Cellar/cmake/3.19.6/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_0c057
+/opt/homebrew/Cellar/cmake/3.19.6/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0c057.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -D_GNU_SOURCE -arch arm64 -mmacosx-version-min=10.13 -stdlib=libc++ -Werror -Wno-error -Wall -Wextra -Wdocumentation -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc11-extensions -Wformat -Wformat-security -Wmissing-declarations -DCHECK_FUNCTION_EXISTS=clock_gettime -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_0c057.dir/CheckFunctionExists.c.o -o cmTC_0c057   -L/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp/time.h  -Wl,-rpath,/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp/time.h -lrt 
+ld: warning: directory not found for option '-L/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp/time.h'
+ld: library not found for -lrt
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[2]: *** [CMakeFiles/cmTC_0c057.dir/build.make:106: cmTC_0c057] Error 1
+make[2]: Leaving directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+make[1]: *** [Makefile:140: cmTC_0c057/fast] Error 2
+make[1]: Leaving directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+
+
+
+Performing C SOURCE FILE Test IS_WIMPLICIT_FALLTHROUGH_1_SUPPORTED failed with the following output:
+Change Dir: /Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/make/bin/make cmTC_3958c/fast && make[1]: Entering directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+/usr/local/make/bin/make  -f CMakeFiles/cmTC_3958c.dir/build.make CMakeFiles/cmTC_3958c.dir/build
+make[2]: Entering directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3958c.dir/src.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -DIS_WIMPLICIT_FALLTHROUGH_1_SUPPORTED  -D_GNU_SOURCE -arch arm64 -mmacosx-version-min=10.13 -stdlib=libc++ -Werror -Wno-error -Wall -Wextra -Wdocumentation -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc11-extensions -Wformat -Wformat-security -Wmissing-declarations  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk   -Wimplicit-fallthrough=1 -o CMakeFiles/cmTC_3958c.dir/src.c.o -c /Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp/src.c
+warning: unknown warning option '-Wimplicit-fallthrough=1'; did you mean '-Wimplicit-fallthrough'? [-Wunknown-warning-option]
+1 warning generated.
+Linking C executable cmTC_3958c
+/opt/homebrew/Cellar/cmake/3.19.6/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3958c.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -D_GNU_SOURCE -arch arm64 -mmacosx-version-min=10.13 -stdlib=libc++ -Werror -Wno-error -Wall -Wextra -Wdocumentation -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc11-extensions -Wformat -Wformat-security -Wmissing-declarations  -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_3958c.dir/src.c.o -o cmTC_3958c 
+make[2]: Leaving directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main(void) { return 0; }
+Determining if the function iconv_open exists failed with the following output:
+Change Dir: /Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/local/make/bin/make cmTC_8b774/fast && make[1]: Entering directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+/usr/local/make/bin/make  -f CMakeFiles/cmTC_8b774.dir/build.make CMakeFiles/cmTC_8b774.dir/build
+make[2]: Entering directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8b774.dir/CheckFunctionExists.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -D_GNU_SOURCE -arch arm64 -mmacosx-version-min=10.13 -stdlib=libc++ -Werror -Wno-error -Wall -Wextra -Wdocumentation -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc11-extensions -Wformat -Wformat-security -Wmissing-declarations -DCHECK_FUNCTION_EXISTS=iconv_open -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -o CMakeFiles/cmTC_8b774.dir/CheckFunctionExists.c.o -c /opt/homebrew/Cellar/cmake/3.19.6/share/cmake/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8b774
+/opt/homebrew/Cellar/cmake/3.19.6/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8b774.dir/link.txt --verbose=1
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -D_GNU_SOURCE -arch arm64 -mmacosx-version-min=10.13 -stdlib=libc++ -Werror -Wno-error -Wall -Wextra -Wdocumentation -Wno-documentation-deprecated-sync -Wno-missing-field-initializers -Wstrict-aliasing -Wstrict-prototypes -Wdeclaration-after-statement -Wshift-count-overflow -Wunused-const-variable -Wunused-function -Wint-conversion -Wc11-extensions -Wformat -Wformat-security -Wmissing-declarations -DCHECK_FUNCTION_EXISTS=iconv_open -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_8b774.dir/CheckFunctionExists.c.o -o cmTC_8b774 
+Undefined symbols for architecture arm64:
+  "_iconv_open", referenced from:
+      _main in CheckFunctionExists.c.o
+ld: symbol(s) not found for architecture arm64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[2]: *** [CMakeFiles/cmTC_8b774.dir/build.make:106: cmTC_8b774] Error 1
+make[2]: Leaving directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+make[1]: *** [Makefile:140: cmTC_8b774/fast] Error 2
+make[1]: Leaving directory '/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/build/arm64/CMakeFiles/CMakeTmp'
+
+
+

@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/source/deps/http-parser/http_parser.c
+http_parser.h
+/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/source/deps/http-parser/http_parser.h
+assert.h
+-
+stddef.h
+-
+ctype.h
+-
+stdlib.h
+-
+string.h
+-
+limits.h
+-
+
+/Users/macmade/Documents/Macmade/GitHub/libgit/libgit2/source/deps/http-parser/http_parser.h
+sys/types.h
+-
+BaseTsd.h
+-
+sys/inttypes.h
+-
+stdint.h
+-
+
