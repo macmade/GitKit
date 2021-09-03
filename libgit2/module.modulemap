@@ -24,34 +24,15 @@
 
 module libgit2
 {
-    umbrella header "include/git2.h"
+    header "include/git2/global.h"
+    header "include/git2/repository.h"
+    header "include/git2/branch.h"
+    header "include/git2/remote.h"
+    header "include/git2/refs.h"
+    
+    export *
     
     link "git2"
     link "iconv"
     link "z"
-    
-    export *
-    module * { export * }
-    
-    exclude header "include/git2/inttypes.h"
-    exclude header "include/git2/stdint.h"
-    
-    explicit module cred_helpers
-    {
-        header "include/git2/cred_helpers.h"
-        export *
-    }
-    
-    explicit module trace
-    {
-        header "include/git2/trace.h"
-        export *
-    }
-    
-    explicit module sys
-    {
-        umbrella "include/git2/sys"
-        export *
-        module * { export * }
-    }
 }
