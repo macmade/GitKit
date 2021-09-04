@@ -32,6 +32,12 @@ public class Commit
     private                    let ref:        OpaquePointer?
     private                    let oid:        UnsafePointer< git_oid >
     public                     let hash:       String
+    public                     let body:       String?
+    public                     let message:    String?
+    public                     let summary:    String?
+    public                     let date:       Date
+    public                     let author:     Signature
+    public                     let committer:  Signature
     
     public convenience init( repository: Repository, ref: OpaquePointer ) throws
     {
@@ -64,11 +70,51 @@ public class Commit
             throw Error( "Cannot get commit hash: \( repository.url.path )" );
         }
         
+        guard let author = git_commit_author( commit ) else
+        {
+            throw Error( "Cannot get commit author: \( repository.url.path )" );
+        }
+        
+        guard let committer = git_commit_committer( commit ) else
+        {
+            throw Error( "Cannot get commit committer: \( repository.url.path )" );
+        }
+        
+        if let body = git_commit_body( commit )
+        {
+            self.body = String( cString: body )
+        }
+        else
+        {
+            self.body = nil
+        }
+        
+        if let message = git_commit_message( commit )
+        {
+            self.message = String( cString: message )
+        }
+        else
+        {
+            self.message = nil
+        }
+        
+        if let summary = git_commit_message( commit )
+        {
+            self.summary = String( cString: summary )
+        }
+        else
+        {
+            self.summary = nil
+        }
+        
         self.oid        = oid
         self.commit     = commit
         self.repository = repository
         self.ref        = ref
         self.hash       = String( cString: hash )
+        self.date       = Date( timeIntervalSince1970: TimeInterval( git_commit_time( commit ) ) )
+        self.author     = Signature( signature: author )
+        self.committer  = Signature( signature: committer )
     }
     
     deinit

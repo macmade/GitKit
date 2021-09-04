@@ -25,46 +25,14 @@
 import Foundation
 import libgit2
 
-public class Branch
+public class Signature
 {
-    public                     let name:       String
-    private                    let ref:        OpaquePointer
-    public private( set )      var lastCommit: Commit?
-    public private( set ) weak var repository: Repository?
+    public let name:  String
+    public let email: String
     
-    public init( repository: Repository, ref: OpaquePointer ) throws
+    public init( signature: UnsafePointer< git_signature > )
     {
-        var name: UnsafePointer< CChar >!
-        
-        if git_branch_name( &name, ref ) != 0 || name == nil
-        {
-            throw Error( "Cannot retrieve branch name: \( repository.url.path )" )
-        }
-        
-        self.repository = repository
-        self.ref        = ref
-        self.name       = String( cString: name )
-        
-        var oid = git_reference_target( ref )
-        
-        if oid == nil
-        {
-            var commitRef: OpaquePointer!
-            
-            if git_reference_resolve( &commitRef, ref ) == 0, let commitRef = commitRef
-            {
-                oid = git_reference_target( commitRef )
-            }
-        }
-        
-        if let oid = oid
-        {
-            self.lastCommit = try? Commit( repository: repository, oid: oid, ref: nil )
-        }
-    }
-    
-    deinit
-    {
-        git_reference_free( self.ref )
+        self.name  = String( cString: signature.pointee.name )
+        self.email = String( cString: signature.pointee.email )
     }
 }
