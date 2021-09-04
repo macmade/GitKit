@@ -116,4 +116,35 @@ public class Repository: Equatable
     {
         git_repository_free( self.repository )
     }
+    
+    public func isDirty() -> Bool
+    {
+        var list:     OpaquePointer!
+        var options = git_status_options()
+        
+        git_status_options_init( &options, UInt32( GIT_STATUS_OPTIONS_VERSION ) )
+        
+        if git_status_list_new( &list, repository, &options ) == 0, let list = list
+        {
+            defer
+            {
+                git_status_list_free( list )
+            }
+            
+            for i in 0 ..< git_status_list_entrycount( list )
+            {
+                guard let entry = git_status_byindex( list, i ) else
+                {
+                    continue
+                }
+                
+                if entry.pointee.status.rawValue != 0
+                {
+                    return true
+                }
+            }
+        }
+        
+        return false
+    }
 }

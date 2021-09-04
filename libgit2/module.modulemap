@@ -31,6 +31,7 @@ module libgit2
     header "include/git2/refs.h"
     header "include/git2/commit.h"
     header "include/git2/graph.h"
+    header "include/git2/status.h"
     
     export *
     
