@@ -25,13 +25,19 @@
 import Foundation
 import libgit2
 
-public class Repository
+public class Repository: Equatable
 {
+    
     public                let url:        URL
     public private( set ) var branches:   [ Branch ] = []
     public private( set ) var remotes:    [ Remote ] = []
     public private( set ) var head:       Either< Branch, Commit >?
     internal              var repository: OpaquePointer!
+    
+    public static func == ( lhs: Repository, rhs: Repository ) -> Bool
+    {
+        lhs.url == rhs.url
+    }
     
     public convenience init( path: String ) throws
     {

@@ -25,12 +25,17 @@
 import Foundation
 import libgit2
 
-public class Remote
+public class Remote: Equatable
 {
     public                     let name:       String
     public                     let url:        URL
     private                    let remote:     OpaquePointer
     public private( set ) weak var repository: Repository?
+    
+    public static func == ( lhs: Remote, rhs: Remote ) -> Bool
+    {
+        lhs.repository == rhs.repository && lhs.url == rhs.url
+    }
     
     public init( repository: Repository, remote: OpaquePointer ) throws
     {

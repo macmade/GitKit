@@ -25,7 +25,7 @@
 import Foundation
 import libgit2
 
-public class Commit
+public class Commit: Equatable
 {
     public private( set ) weak var repository: Repository?
     private                    let commit:     OpaquePointer
@@ -38,6 +38,11 @@ public class Commit
     public                     let date:       Date
     public                     let author:     Signature
     public                     let committer:  Signature
+    
+    public static func == ( lhs: Commit, rhs: Commit ) -> Bool
+    {
+        lhs.repository == rhs.repository && lhs.hash == rhs.hash
+    }
     
     public convenience init( repository: Repository, ref: OpaquePointer ) throws
     {

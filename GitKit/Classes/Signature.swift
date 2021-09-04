@@ -25,10 +25,15 @@
 import Foundation
 import libgit2
 
-public class Signature
+public class Signature: Equatable
 {
     public let name:  String
     public let email: String
+    
+    public static func == ( lhs: Signature, rhs: Signature ) -> Bool
+    {
+        lhs.name == rhs.name && lhs.email == rhs.email
+    }
     
     public init( signature: UnsafePointer< git_signature > )
     {

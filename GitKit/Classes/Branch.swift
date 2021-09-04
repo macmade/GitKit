@@ -25,12 +25,17 @@
 import Foundation
 import libgit2
 
-public class Branch
+public class Branch: Equatable
 {
     public                     let name:       String
     private                    let ref:        OpaquePointer
     public private( set )      var lastCommit: Commit?
     public private( set ) weak var repository: Repository?
+    
+    public static func == ( lhs: Branch, rhs: Branch ) -> Bool
+    {
+        lhs.repository == rhs.repository && lhs.name == rhs.name
+    }
     
     public init( repository: Repository, ref: OpaquePointer ) throws
     {
