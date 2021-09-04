@@ -67,4 +67,49 @@ public class Branch
     {
         git_reference_free( self.ref )
     }
+    
+    public func graph( with branch: Branch ) -> ( ahead: Int, behind: Int )?
+    {
+        var oid1 = git_reference_target( self.ref )
+        var oid2 = git_reference_target( branch.ref )
+        
+        if oid1 == nil
+        {
+            var ref: OpaquePointer!
+            
+            if git_reference_resolve( &ref, self.ref ) != 0 || ref == nil
+            {
+                return nil
+            }
+            
+            oid1 = git_reference_target( ref )
+        }
+        
+        if oid2 == nil
+        {
+            var ref: OpaquePointer!
+            
+            if git_reference_resolve( &ref, self.ref ) != 0 || ref == nil
+            {
+                return nil
+            }
+            
+            oid2 = git_reference_target( ref )
+        }
+        
+        guard let oid1 = oid1, let oid2 = oid2 else
+        {
+            return nil
+        }
+        
+        var ahead:  Int = 0
+        var behind: Int = 0
+        
+        if git_graph_ahead_behind( &ahead, &behind, self.repository?.repository, oid1, oid2 ) == 0
+        {
+            return ( ahead: ahead, behind: behind )
+        }
+        
+        return nil
+    }
 }

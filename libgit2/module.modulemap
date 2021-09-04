@@ -30,6 +30,7 @@ module libgit2
     header "include/git2/remote.h"
     header "include/git2/refs.h"
     header "include/git2/commit.h"
+    header "include/git2/graph.h"
     
     export *
     
