@@ -12,7 +12,7 @@ libgit
 
 ### About
 
-libgit2 build with language bindings for personal projects.
+libgit2 build with Swift language bindings for personal projects.
 
 License
 -------

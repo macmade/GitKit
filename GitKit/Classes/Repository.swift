@@ -47,10 +47,6 @@ public class Repository: Equatable
     public init( url: URL ) throws
     {
         var repository: OpaquePointer!
-        var it:         OpaquePointer!
-        var ref:        OpaquePointer!
-        var head:       OpaquePointer!
-        var type      = git_branch_t( 0 )
         
         git_libgit2_init()
         
@@ -58,6 +54,30 @@ public class Repository: Equatable
         {
             throw Error( "Cannot open repository: \( url.path )" )
         }
+        
+        self.url        = url
+        self.repository = repository
+        
+        self.update()
+    }
+    
+    deinit
+    {
+        git_repository_free( self.repository )
+    }
+    
+    public func update()
+    {
+        try? self.updateBranches()
+        try? self.updateRemotes()
+        try? self.updateHead()
+    }
+    
+    private func updateBranches() throws
+    {
+        self.branches.removeAll()
+        
+        var it: OpaquePointer!
         
         if git_branch_iterator_new( &it, repository, GIT_BRANCH_ALL ) != 0 || it == nil
         {
@@ -69,22 +89,8 @@ public class Repository: Equatable
             git_branch_iterator_free( it )
         }
         
-        self.url        = url
-        self.repository = repository
-        
-        if git_repository_head( &head, repository ) != 0 || head == nil
-        {
-            throw Error( "Cannot get head: \( url.path )" )
-        }
-        
-        if let branch = try? Branch( repository: self, ref: head )
-        {
-            self.head = .first( branch )
-        }
-        else if let commit = try? Commit( repository: self, ref: head )
-        {
-            self.head = .second( commit )
-        }
+        var ref:   OpaquePointer!
+        var type = git_branch_t( 0 )
         
         while git_branch_next( &ref, &type, it ) == 0
         {
@@ -93,6 +99,11 @@ public class Repository: Equatable
                 self.branches.append( try Branch( repository: self, ref: ref ) )
             }
         }
+    }
+    
+    private func updateRemotes() throws
+    {
+        self.remotes.removeAll()
         
         var names = git_strarray()
         
@@ -112,9 +123,25 @@ public class Repository: Equatable
         }
     }
     
-    deinit
+    private func updateHead() throws
     {
-        git_repository_free( self.repository )
+        self.head = nil
+        
+        var head: OpaquePointer!
+        
+        if git_repository_head( &head, repository ) != 0 || head == nil
+        {
+            throw Error( "Cannot get head: \( url.path )" )
+        }
+        
+        if let branch = try? Branch( repository: self, ref: head )
+        {
+            self.head = .first( branch )
+        }
+        else if let commit = try? Commit( repository: self, ref: head )
+        {
+            self.head = .second( commit )
+        }
     }
     
     public func isDirty() -> Bool
