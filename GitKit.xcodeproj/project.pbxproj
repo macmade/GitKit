@@ -13,6 +13,7 @@
 		055FD8B326E221BC0034048C /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055FD8B226E221BC0034048C /* Remote.swift */; };
 		0580507926E2D70B00845F70 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580507826E2D70B00845F70 /* Commit.swift */; };
 		0580507B26E2D84800845F70 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580507A26E2D84800845F70 /* Either.swift */; };
+		0580507D26E393B600845F70 /* StringArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580507C26E393B600845F70 /* StringArray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,6 +115,7 @@
 		055FD8B226E221BC0034048C /* Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
 		0580507826E2D70B00845F70 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		0580507A26E2D84800845F70 /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
+		0580507C26E393B600845F70 /* StringArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringArray.swift; sourceTree = "<group>"; };
 		05A5D73C26E20BEB00C9888C /* Release - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release - ccache.xcconfig"; sourceTree = "<group>"; };
 		05A5D73D26E20BEB00C9888C /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		05A5D73E26E20BEB00C9888C /* Debug - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - ccache.xcconfig"; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				055FD8B026E21F160034048C /* Branch.swift */,
 				055FD8B226E221BC0034048C /* Remote.swift */,
 				055FD8AE26E21CB30034048C /* Error.swift */,
+				0580507C26E393B600845F70 /* StringArray.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				055FD8B126E21F160034048C /* Branch.swift in Sources */,
 				055FD8AC26E218BB0034048C /* Repository.swift in Sources */,
 				0580507B26E2D84800845F70 /* Either.swift in Sources */,
+				0580507D26E393B600845F70 /* StringArray.swift in Sources */,
 				055FD8B326E221BC0034048C /* Remote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

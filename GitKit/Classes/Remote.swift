@@ -27,11 +27,30 @@ import libgit2
 
 public class Remote
 {
+    public                     let name:       String
+    public                     let url:        URL
     private                    let remote:     OpaquePointer
     public private( set ) weak var repository: Repository?
     
     public init( repository: Repository, remote: OpaquePointer ) throws
     {
+        guard let name = git_remote_name( remote ) else
+        {
+            throw Error( "Cannot get remote name: \( repository.url.path )" )
+        }
+        
+        guard let urlstr = git_remote_url( remote ) else
+        {
+            throw Error( "Cannot get remote url: \( repository.url.path )" )
+        }
+        
+        guard let url = URL( string: String( cString: urlstr ) ) else
+        {
+            throw Error( "Invalid remote URL: \( urlstr )" )
+        }
+        
+        self.name       = String( cString: name )
+        self.url        = url
         self.repository = repository
         self.remote     = remote
     }
@@ -39,5 +58,21 @@ public class Remote
     deinit
     {
         git_remote_free( self.remote )
+    }
+    
+    @discardableResult
+    public func fetch( refspecs: [ String ], reflogMessage: String ) -> Bool
+    {
+        var options = git_fetch_options()
+        let array   = StringArray( strings: refspecs )
+        
+        git_fetch_options_init( &options, UInt32( GIT_FETCH_OPTIONS_VERSION ) )
+        
+        options.callbacks.credentials = nil
+        
+        var strarray = array.array
+        let status   = git_remote_fetch( self.remote, &strarray, &options, reflogMessage.cString( using: .utf8 ) )
+        
+        return status == 0
     }
 }

@@ -55,6 +55,8 @@ public class Commit
         let hashLength = Int( GIT_OID_HEXSZ ) + 1
         let hash       = UnsafeMutablePointer< CChar >.allocate( capacity: hashLength )
         
+        defer { hash.deallocate() }
+        
         hash.initialize( repeating: 0, count: hashLength )
         
         if git_oid_tostr( hash, Int( GIT_OID_HEXSZ ) + 1, oid ) == nil
