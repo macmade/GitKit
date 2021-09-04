@@ -22,21 +22,4 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-module libgit2
-{
-    header "include/git2/global.h"
-    header "include/git2/repository.h"
-    header "include/git2/branch.h"
-    header "include/git2/remote.h"
-    header "include/git2/refs.h"
-    header "include/git2/commit.h"
-    header "include/git2/graph.h"
-    header "include/git2/status.h"
-    header "include/git2/errors.h"
-    
-    export *
-    
-    link "git2"
-    link "iconv"
-    link "z"
-}
+#import <GitKit/Credentials.h>

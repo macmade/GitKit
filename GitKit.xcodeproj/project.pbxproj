@@ -13,102 +13,19 @@
 		055FD8B326E221BC0034048C /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055FD8B226E221BC0034048C /* Remote.swift */; };
 		0580507926E2D70B00845F70 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580507826E2D70B00845F70 /* Commit.swift */; };
 		0580507B26E2D84800845F70 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580507A26E2D84800845F70 /* Either.swift */; };
-		0580507D26E393B600845F70 /* StringArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580507C26E393B600845F70 /* StringArray.swift */; };
 		0580508226E3BCDC00845F70 /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580508126E3BCDC00845F70 /* Signature.swift */; };
+		0580509A26E4167B00845F70 /* Credentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 0580509826E4167B00845F70 /* Credentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0580509B26E4167B00845F70 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580509926E4167B00845F70 /* Credentials.m */; };
+		0580509D26E4174B00845F70 /* git2 in Headers */ = {isa = PBXBuildFile; fileRef = 0580509C26E4174100845F70 /* git2 */; };
+		0580509E26E4175300845F70 /* git2.h in Headers */ = {isa = PBXBuildFile; fileRef = 055FD84326E213380034048C /* git2.h */; };
+		058050A026E4184A00845F70 /* GitKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 0580509F26E417E000845F70 /* GitKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		058050A326E41CF800845F70 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058050A226E41CF800845F70 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		055FD84026E213380034048C /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		055FD84126E213380034048C /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		055FD84326E213380034048C /* git2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = git2.h; sourceTree = "<group>"; };
-		055FD84526E213380034048C /* signature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = signature.h; sourceTree = "<group>"; };
-		055FD84626E213380034048C /* oid.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = oid.h; sourceTree = "<group>"; };
-		055FD84726E213380034048C /* index.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = index.h; sourceTree = "<group>"; };
-		055FD84826E213380034048C /* ignore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ignore.h; sourceTree = "<group>"; };
-		055FD84926E213380034048C /* attr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = attr.h; sourceTree = "<group>"; };
-		055FD84A26E213380034048C /* blame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blame.h; sourceTree = "<group>"; };
-		055FD84B26E213380034048C /* oidarray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = oidarray.h; sourceTree = "<group>"; };
-		055FD84C26E213380034048C /* pack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pack.h; sourceTree = "<group>"; };
-		055FD84D26E213380034048C /* revert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = revert.h; sourceTree = "<group>"; };
-		055FD84E26E213380034048C /* version.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
-		055FD84F26E213380034048C /* odb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = odb.h; sourceTree = "<group>"; };
-		055FD85026E213380034048C /* status.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = status.h; sourceTree = "<group>"; };
-		055FD85126E213380034048C /* net.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = net.h; sourceTree = "<group>"; };
-		055FD85226E213380034048C /* tag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tag.h; sourceTree = "<group>"; };
-		055FD85326E213380034048C /* annotated_commit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = annotated_commit.h; sourceTree = "<group>"; };
-		055FD85426E213380034048C /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		055FD85526E213380034048C /* branch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = branch.h; sourceTree = "<group>"; };
-		055FD85626E213380034048C /* types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
-		055FD85726E213380034048C /* repository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = repository.h; sourceTree = "<group>"; };
-		055FD85826E213380034048C /* clone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = clone.h; sourceTree = "<group>"; };
-		055FD85926E213380034048C /* global.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = global.h; sourceTree = "<group>"; };
-		055FD85A26E213380034048C /* blob.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = blob.h; sourceTree = "<group>"; };
-		055FD85B26E213380034048C /* cherrypick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cherrypick.h; sourceTree = "<group>"; };
-		055FD85C26E213380034048C /* mailmap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mailmap.h; sourceTree = "<group>"; };
-		055FD85D26E213380034048C /* submodule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = submodule.h; sourceTree = "<group>"; };
-		055FD85E26E213380034048C /* errors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = errors.h; sourceTree = "<group>"; };
-		055FD85F26E213380034048C /* message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = message.h; sourceTree = "<group>"; };
-		055FD86026E213380034048C /* merge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = merge.h; sourceTree = "<group>"; };
-		055FD86126E213380034048C /* pathspec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pathspec.h; sourceTree = "<group>"; };
-		055FD86226E213380034048C /* tree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tree.h; sourceTree = "<group>"; };
-		055FD86326E213380034048C /* odb_backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = odb_backend.h; sourceTree = "<group>"; };
-		055FD86426E213380034048C /* graph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = graph.h; sourceTree = "<group>"; };
-		055FD86526E213380034048C /* describe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = describe.h; sourceTree = "<group>"; };
-		055FD86626E213380034048C /* rebase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rebase.h; sourceTree = "<group>"; };
-		055FD86726E213380034048C /* worktree.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = worktree.h; sourceTree = "<group>"; };
-		055FD86826E213380034048C /* stash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stash.h; sourceTree = "<group>"; };
-		055FD86926E213380034048C /* remote.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = remote.h; sourceTree = "<group>"; };
-		055FD86A26E213380034048C /* strarray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = strarray.h; sourceTree = "<group>"; };
-		055FD86B26E213380034048C /* reflog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = reflog.h; sourceTree = "<group>"; };
-		055FD86C26E213380034048C /* cred_helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cred_helpers.h; sourceTree = "<group>"; };
-		055FD86D26E213380034048C /* buffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
-		055FD86E26E213380034048C /* diff.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = diff.h; sourceTree = "<group>"; };
-		055FD87026E213380034048C /* index.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = index.h; sourceTree = "<group>"; };
-		055FD87126E213380034048C /* config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		055FD87226E213380034048C /* path.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = path.h; sourceTree = "<group>"; };
-		055FD87326E213380034048C /* repository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = repository.h; sourceTree = "<group>"; };
-		055FD87426E213380034048C /* openssl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = openssl.h; sourceTree = "<group>"; };
-		055FD87526E213380034048C /* midx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = midx.h; sourceTree = "<group>"; };
-		055FD87626E213380034048C /* cred.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cred.h; sourceTree = "<group>"; };
-		055FD87726E213380034048C /* merge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = merge.h; sourceTree = "<group>"; };
-		055FD87826E213380034048C /* stream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stream.h; sourceTree = "<group>"; };
-		055FD87926E213380034048C /* odb_backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = odb_backend.h; sourceTree = "<group>"; };
-		055FD87A26E213380034048C /* reflog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = reflog.h; sourceTree = "<group>"; };
-		055FD87B26E213380034048C /* diff.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = diff.h; sourceTree = "<group>"; };
-		055FD87C26E213380034048C /* commit_graph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commit_graph.h; sourceTree = "<group>"; };
-		055FD87D26E213380034048C /* transport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = transport.h; sourceTree = "<group>"; };
-		055FD87E26E213380034048C /* hashsig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hashsig.h; sourceTree = "<group>"; };
-		055FD87F26E213380034048C /* credential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = credential.h; sourceTree = "<group>"; };
-		055FD88026E213380034048C /* refs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = refs.h; sourceTree = "<group>"; };
-		055FD88126E213380034048C /* filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = filter.h; sourceTree = "<group>"; };
-		055FD88226E213380034048C /* alloc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = alloc.h; sourceTree = "<group>"; };
-		055FD88326E213380034048C /* mempack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mempack.h; sourceTree = "<group>"; };
-		055FD88426E213380034048C /* commit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commit.h; sourceTree = "<group>"; };
-		055FD88526E213380034048C /* refdb_backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = refdb_backend.h; sourceTree = "<group>"; };
-		055FD88626E213380034048C /* trace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = trace.h; sourceTree = "<group>"; };
-		055FD88726E213380034048C /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
-		055FD88826E213380034048C /* proxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = proxy.h; sourceTree = "<group>"; };
-		055FD88926E213380034048C /* indexer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = indexer.h; sourceTree = "<group>"; };
-		055FD88A26E213380034048C /* refspec.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = refspec.h; sourceTree = "<group>"; };
-		055FD88B26E213380034048C /* notes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = notes.h; sourceTree = "<group>"; };
-		055FD88C26E213380034048C /* cert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cert.h; sourceTree = "<group>"; };
-		055FD88D26E213380034048C /* deprecated.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = deprecated.h; sourceTree = "<group>"; };
-		055FD88E26E213380034048C /* transport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = transport.h; sourceTree = "<group>"; };
-		055FD88F26E213380034048C /* revwalk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = revwalk.h; sourceTree = "<group>"; };
-		055FD89026E213380034048C /* patch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = patch.h; sourceTree = "<group>"; };
-		055FD89126E213380034048C /* object.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = object.h; sourceTree = "<group>"; };
-		055FD89226E213380034048C /* checkout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = checkout.h; sourceTree = "<group>"; };
-		055FD89326E213380034048C /* apply.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = apply.h; sourceTree = "<group>"; };
-		055FD89426E213380034048C /* revparse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = revparse.h; sourceTree = "<group>"; };
-		055FD89526E213380034048C /* credential_helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = credential_helpers.h; sourceTree = "<group>"; };
-		055FD89626E213380034048C /* credential.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = credential.h; sourceTree = "<group>"; };
-		055FD89726E213380034048C /* refs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = refs.h; sourceTree = "<group>"; };
-		055FD89826E213380034048C /* reset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = reset.h; sourceTree = "<group>"; };
-		055FD89926E213380034048C /* filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = filter.h; sourceTree = "<group>"; };
-		055FD89A26E213380034048C /* transaction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = transaction.h; sourceTree = "<group>"; };
-		055FD89B26E213380034048C /* stdint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stdint.h; sourceTree = "<group>"; };
-		055FD89C26E213380034048C /* commit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commit.h; sourceTree = "<group>"; };
-		055FD89D26E213380034048C /* refdb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = refdb.h; sourceTree = "<group>"; };
 		055FD8A426E218B50034048C /* GitKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GitKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		055FD8A726E218B50034048C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		055FD8AE26E21CB30034048C /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -116,8 +33,12 @@
 		055FD8B226E221BC0034048C /* Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
 		0580507826E2D70B00845F70 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		0580507A26E2D84800845F70 /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
-		0580507C26E393B600845F70 /* StringArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringArray.swift; sourceTree = "<group>"; };
 		0580508126E3BCDC00845F70 /* Signature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signature.swift; sourceTree = "<group>"; };
+		0580509826E4167B00845F70 /* Credentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
+		0580509926E4167B00845F70 /* Credentials.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
+		0580509C26E4174100845F70 /* git2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = git2; sourceTree = "<group>"; };
+		0580509F26E417E000845F70 /* GitKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GitKit.h; sourceTree = "<group>"; };
+		058050A226E41CF800845F70 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		05A5D73C26E20BEB00C9888C /* Release - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release - ccache.xcconfig"; sourceTree = "<group>"; };
 		05A5D73D26E20BEB00C9888C /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		05A5D73E26E20BEB00C9888C /* Debug - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - ccache.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				058050A326E41CF800845F70 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,113 +111,10 @@
 		055FD84226E213380034048C /* include */ = {
 			isa = PBXGroup;
 			children = (
+				0580509C26E4174100845F70 /* git2 */,
 				055FD84326E213380034048C /* git2.h */,
-				055FD84426E213380034048C /* git2 */,
 			);
 			path = include;
-			sourceTree = "<group>";
-		};
-		055FD84426E213380034048C /* git2 */ = {
-			isa = PBXGroup;
-			children = (
-				055FD85326E213380034048C /* annotated_commit.h */,
-				055FD89326E213380034048C /* apply.h */,
-				055FD84926E213380034048C /* attr.h */,
-				055FD84A26E213380034048C /* blame.h */,
-				055FD85A26E213380034048C /* blob.h */,
-				055FD85526E213380034048C /* branch.h */,
-				055FD86D26E213380034048C /* buffer.h */,
-				055FD88C26E213380034048C /* cert.h */,
-				055FD89226E213380034048C /* checkout.h */,
-				055FD85B26E213380034048C /* cherrypick.h */,
-				055FD85826E213380034048C /* clone.h */,
-				055FD89C26E213380034048C /* commit.h */,
-				055FD88726E213380034048C /* common.h */,
-				055FD85426E213380034048C /* config.h */,
-				055FD86C26E213380034048C /* cred_helpers.h */,
-				055FD89526E213380034048C /* credential_helpers.h */,
-				055FD89626E213380034048C /* credential.h */,
-				055FD88D26E213380034048C /* deprecated.h */,
-				055FD86526E213380034048C /* describe.h */,
-				055FD86E26E213380034048C /* diff.h */,
-				055FD85E26E213380034048C /* errors.h */,
-				055FD89926E213380034048C /* filter.h */,
-				055FD85926E213380034048C /* global.h */,
-				055FD86426E213380034048C /* graph.h */,
-				055FD84826E213380034048C /* ignore.h */,
-				055FD84726E213380034048C /* index.h */,
-				055FD88926E213380034048C /* indexer.h */,
-				055FD85C26E213380034048C /* mailmap.h */,
-				055FD86026E213380034048C /* merge.h */,
-				055FD85F26E213380034048C /* message.h */,
-				055FD85126E213380034048C /* net.h */,
-				055FD88B26E213380034048C /* notes.h */,
-				055FD89126E213380034048C /* object.h */,
-				055FD86326E213380034048C /* odb_backend.h */,
-				055FD84F26E213380034048C /* odb.h */,
-				055FD84626E213380034048C /* oid.h */,
-				055FD84B26E213380034048C /* oidarray.h */,
-				055FD84C26E213380034048C /* pack.h */,
-				055FD89026E213380034048C /* patch.h */,
-				055FD86126E213380034048C /* pathspec.h */,
-				055FD88826E213380034048C /* proxy.h */,
-				055FD86626E213380034048C /* rebase.h */,
-				055FD89D26E213380034048C /* refdb.h */,
-				055FD86B26E213380034048C /* reflog.h */,
-				055FD89726E213380034048C /* refs.h */,
-				055FD88A26E213380034048C /* refspec.h */,
-				055FD86926E213380034048C /* remote.h */,
-				055FD85726E213380034048C /* repository.h */,
-				055FD89826E213380034048C /* reset.h */,
-				055FD84D26E213380034048C /* revert.h */,
-				055FD89426E213380034048C /* revparse.h */,
-				055FD88F26E213380034048C /* revwalk.h */,
-				055FD84526E213380034048C /* signature.h */,
-				055FD86826E213380034048C /* stash.h */,
-				055FD85026E213380034048C /* status.h */,
-				055FD89B26E213380034048C /* stdint.h */,
-				055FD86A26E213380034048C /* strarray.h */,
-				055FD85D26E213380034048C /* submodule.h */,
-				055FD86F26E213380034048C /* sys */,
-				055FD85226E213380034048C /* tag.h */,
-				055FD88626E213380034048C /* trace.h */,
-				055FD89A26E213380034048C /* transaction.h */,
-				055FD88E26E213380034048C /* transport.h */,
-				055FD86226E213380034048C /* tree.h */,
-				055FD85626E213380034048C /* types.h */,
-				055FD84E26E213380034048C /* version.h */,
-				055FD86726E213380034048C /* worktree.h */,
-			);
-			path = git2;
-			sourceTree = "<group>";
-		};
-		055FD86F26E213380034048C /* sys */ = {
-			isa = PBXGroup;
-			children = (
-				055FD88226E213380034048C /* alloc.h */,
-				055FD87C26E213380034048C /* commit_graph.h */,
-				055FD88426E213380034048C /* commit.h */,
-				055FD87126E213380034048C /* config.h */,
-				055FD87626E213380034048C /* cred.h */,
-				055FD87F26E213380034048C /* credential.h */,
-				055FD87B26E213380034048C /* diff.h */,
-				055FD88126E213380034048C /* filter.h */,
-				055FD87E26E213380034048C /* hashsig.h */,
-				055FD87026E213380034048C /* index.h */,
-				055FD88326E213380034048C /* mempack.h */,
-				055FD87726E213380034048C /* merge.h */,
-				055FD87526E213380034048C /* midx.h */,
-				055FD87926E213380034048C /* odb_backend.h */,
-				055FD87426E213380034048C /* openssl.h */,
-				055FD87226E213380034048C /* path.h */,
-				055FD88526E213380034048C /* refdb_backend.h */,
-				055FD87A26E213380034048C /* reflog.h */,
-				055FD88026E213380034048C /* refs.h */,
-				055FD87326E213380034048C /* repository.h */,
-				055FD87826E213380034048C /* stream.h */,
-				055FD87D26E213380034048C /* transport.h */,
-			);
-			path = sys;
 			sourceTree = "<group>";
 		};
 		055FD8A526E218B50034048C /* GitKit */ = {
@@ -317,9 +136,19 @@
 				055FD8B226E221BC0034048C /* Remote.swift */,
 				055FD8AE26E21CB30034048C /* Error.swift */,
 				0580508126E3BCDC00845F70 /* Signature.swift */,
-				0580507C26E393B600845F70 /* StringArray.swift */,
+				0580509F26E417E000845F70 /* GitKit.h */,
+				0580509826E4167B00845F70 /* Credentials.h */,
+				0580509926E4167B00845F70 /* Credentials.m */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		058050A126E41CF800845F70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				058050A226E41CF800845F70 /* Security.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		05A5D72226E20B9900C9888C = {
@@ -329,6 +158,7 @@
 				055FD83F26E213380034048C /* libgit2 */,
 				055FD8A526E218B50034048C /* GitKit */,
 				05A5D72C26E20B9900C9888C /* Products */,
+				058050A126E41CF800845F70 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -463,6 +293,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0580509A26E4167B00845F70 /* Credentials.h in Headers */,
+				058050A026E4184A00845F70 /* GitKit.h in Headers */,
+				0580509E26E4175300845F70 /* git2.h in Headers */,
+				0580509D26E4174B00845F70 /* git2 in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +331,7 @@
 				TargetAttributes = {
 					055FD8A326E218B50034048C = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -539,7 +374,7 @@
 				055FD8AC26E218BB0034048C /* Repository.swift in Sources */,
 				0580508226E3BCDC00845F70 /* Signature.swift in Sources */,
 				0580507B26E2D84800845F70 /* Either.swift in Sources */,
-				0580507D26E393B600845F70 /* StringArray.swift in Sources */,
+				0580509B26E4167B00845F70 /* Credentials.m in Sources */,
 				055FD8B326E221BC0034048C /* Remote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,7 +385,9 @@
 		055FD8AA26E218B50034048C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -571,6 +408,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.GitKit";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/libgit2 $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -579,7 +418,9 @@
 		055FD8AB26E218B50034048C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -600,6 +441,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.GitKit";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/libgit2 $(inherited)";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};

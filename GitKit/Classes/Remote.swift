@@ -66,17 +66,31 @@ public class Remote: Equatable
     }
     
     @discardableResult
-    public func fetch( refspecs: [ String ], reflogMessage: String ) -> Bool
+    public func fetch() -> Bool
     {
         var options = git_fetch_options()
-        let array   = StringArray( strings: refspecs )
         
         git_fetch_options_init( &options, UInt32( GIT_FETCH_OPTIONS_VERSION ) )
         
-        options.callbacks.credentials = nil
+        options.callbacks.credentials = GitKit_Credentials
         
-        var strarray = array.array
-        let status   = git_remote_fetch( self.remote, &strarray, &options, reflogMessage.cString( using: .utf8 ) )
+        let status = git_remote_fetch( self.remote, nil, nil, nil )
+        
+        #if DEBUG
+        if status != 0
+        {
+            if let error = git_error_last()
+            {
+                let message = String( cString: error.pointee.message )
+                
+                print( "Failed to fetch \( self.name ) in \( self.repository?.url.path ?? "<nil>" ): \( message )" )
+            }
+            else
+            {
+                print( "Failed to fetch \( self.name ) in \( self.repository?.url.path ?? "<nil>" )" )
+            }
+        }
+        #endif
         
         return status == 0
     }
