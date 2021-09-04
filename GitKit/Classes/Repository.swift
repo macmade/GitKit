@@ -109,6 +109,11 @@ public class Repository: Equatable
         
         if git_remote_list( &names, repository ) == 0
         {
+            defer
+            {
+                git_strarray_dispose( &names )
+            }
+            
             for i in 0 ..< names.count
             {
                 var remote: OpaquePointer!
