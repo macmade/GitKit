@@ -22,31 +22,41 @@
 # THE SOFTWARE.
 ################################################################################
 
-DIR_SRC   := $(realpath .)/source
-DIR_BUILD := $(realpath .)/build
+REPOS_URL := https://github.com/libgit2/libgit2.git
+DIR_SRC   := $(realpath .)/source/
+DIR_INC   := $(realpath .)/include/
+DIR_LIB   := $(realpath .)/lib/
+DIR_BUILD := $(realpath .)/build/
 
-.PHONY: clone update build
+.PHONY: clean clone update build
 
 all: clone update build
 	
 	@:
+	
+clean:
+	
+	@rm -rf $(DIR_BUILD)/*
 
 clone:
 	
-	@if [ ! -d $(DIR_SRC) ]; then git clone --recursive https://github.com/libgit2/libgit2.git $(DIR_SRC); fi
+	@if [ ! -d $(DIR_SRC) ]; then git clone --recursive $(REPOS_URL) $(DIR_SRC); fi
 
 update:
 	
 	@cd $(DIR_SRC) && git pull
-
+	
 build: build_x86_64 build_arm64
 	
-	@lipo -create -output $(DIR_BUILD)/libgit2.a $(DIR_BUILD)/arm64/libgit2.a $(DIR_BUILD)/x86_64/libgit2.a
-	@rm -rf include
-	@cp -r $(DIR_SRC)/include include
-	
+	@lipo -create -output $(DIR_LIB)/libgit2.a $(DIR_BUILD)/arm64/libgit2.a $(DIR_BUILD)/x86_64/libgit2.a
+	@rm -rf $(DIR_INC)
+	@cp -r $(DIR_SRC)/include $(DIR_INC)
+
+build_%: _FLAGS_DEPLOY_TARGET = 11.0
+build_%: _FLAGS_ARCH          = -target $*-apple-macos11.0
+build_%: _FLAGS_STDLIB        = -stdlib=libc++
 build_%:
 	
 	@mkdir -p $(DIR_BUILD)/$*
-	@cd $(DIR_BUILD)/$* && cmake -DCMAKE_OSX_ARCHITECTURES=$* -DMACOSX_DEPLOYMENT_TARGET=10.13 -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=Release -DTHREADSAFE=ON -DBUILD_CLAR=OFF -DCMAKE_C_FLAGS="-arch $* -mmacosx-version-min=10.13 -stdlib=libc++" -DCMAKE_CXX_FLAGS="-arch $* -mmacosx-version-min=10.13 -stdlib=libc++" $(DIR_SRC)
-	@cd $(DIR_BUILD)/$* && make CFLAGS="-arch $* -mmacosx-version-min=10.13" CXXFLAGS="-arch $* -mmacosx-version-min=10.13 -stdlib=libc++" CPPFLAGS="-arch $* -mmacosx-version-min=10.13 -stdlib=libc++" LDFLAGS="-stdlib=libc++"
+	@cd $(DIR_BUILD)/$* && cmake -DCMAKE_OSX_ARCHITECTURES=$* -DMACOSX_DEPLOYMENT_TARGET=$(_FLAGS_DEPLOY_TARGET) -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=Release -DTHREADSAFE=ON -DBUILD_CLAR=OFF -DCMAKE_C_FLAGS="-arch $* -mmacosx-version-min=$(_FLAGS_DEPLOY_TARGET)" -DCMAKE_CXX_FLAGS="-arch $* -mmacosx-version-min=$(_FLAGS_DEPLOY_TARGET) -$(_FLAGS_STDLIB)" $(DIR_SRC)
+	@cd $(DIR_BUILD)/$* && make CFLAGS="-arch $* -mmacosx-version-min=$(_FLAGS_DEPLOY_TARGET)" CXXFLAGS="-arch $* -mmacosx-version-min=$(_FLAGS_DEPLOY_TARGET) $(_FLAGS_STDLIB)" LDFLAGS="$(_FLAGS_STDLIB)"

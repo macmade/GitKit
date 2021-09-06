@@ -37,6 +37,9 @@ module libgit2
     export *
     
     link "git2"
+    link "crypto"
+    link "decrepit"
+    link "ssl"
     link "iconv"
     link "z"
 }

@@ -16,16 +16,14 @@
 		0580508226E3BCDC00845F70 /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580508126E3BCDC00845F70 /* Signature.swift */; };
 		0580509A26E4167B00845F70 /* Credentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 0580509826E4167B00845F70 /* Credentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0580509B26E4167B00845F70 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580509926E4167B00845F70 /* Credentials.m */; };
-		0580509D26E4174B00845F70 /* git2 in Headers */ = {isa = PBXBuildFile; fileRef = 0580509C26E4174100845F70 /* git2 */; };
-		0580509E26E4175300845F70 /* git2.h in Headers */ = {isa = PBXBuildFile; fileRef = 055FD84326E213380034048C /* git2.h */; };
 		058050A026E4184A00845F70 /* GitKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 0580509F26E417E000845F70 /* GitKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		058050A326E41CF800845F70 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058050A226E41CF800845F70 /* Security.framework */; };
+		0580AA4426E63FA900845F70 /* git2 in Headers */ = {isa = PBXBuildFile; fileRef = 0580AA4226E63F8E00845F70 /* git2 */; };
+		0580AA4526E63FAC00845F70 /* git2.h in Headers */ = {isa = PBXBuildFile; fileRef = 058050AF26E63E2F00845F70 /* git2.h */; };
+		0580AA4626E63FAF00845F70 /* openssl in Headers */ = {isa = PBXBuildFile; fileRef = 0580AA4326E63F9800845F70 /* openssl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		055FD84026E213380034048C /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		055FD84126E213380034048C /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		055FD84326E213380034048C /* git2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = git2.h; sourceTree = "<group>"; };
 		055FD8A426E218B50034048C /* GitKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GitKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		055FD8A726E218B50034048C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		055FD8AE26E21CB30034048C /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -36,9 +34,18 @@
 		0580508126E3BCDC00845F70 /* Signature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signature.swift; sourceTree = "<group>"; };
 		0580509826E4167B00845F70 /* Credentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
 		0580509926E4167B00845F70 /* Credentials.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
-		0580509C26E4174100845F70 /* git2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = git2; sourceTree = "<group>"; };
 		0580509F26E417E000845F70 /* GitKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GitKit.h; sourceTree = "<group>"; };
 		058050A226E41CF800845F70 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		058050AD26E63E2F00845F70 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		058050AF26E63E2F00845F70 /* git2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = git2.h; sourceTree = "<group>"; };
+		0580891726E63E6800845F70 /* libgit2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgit2.a; sourceTree = "<group>"; };
+		05808B2226E63E6A00845F70 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		05808B2426E63E6A00845F70 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		0580A43926E63E8800845F70 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		0580A43A26E63E8800845F70 /* libdecrepit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdecrepit.a; sourceTree = "<group>"; };
+		0580A43B26E63E8800845F70 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		0580AA4226E63F8E00845F70 /* git2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = git2; sourceTree = "<group>"; };
+		0580AA4326E63F9800845F70 /* openssl */ = {isa = PBXFileReference; lastKnownFileType = folder; path = openssl; sourceTree = "<group>"; };
 		05A5D73C26E20BEB00C9888C /* Release - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release - ccache.xcconfig"; sourceTree = "<group>"; };
 		05A5D73D26E20BEB00C9888C /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		05A5D73E26E20BEB00C9888C /* Debug - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - ccache.xcconfig"; sourceTree = "<group>"; };
@@ -98,25 +105,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		055FD83F26E213380034048C /* libgit2 */ = {
-			isa = PBXGroup;
-			children = (
-				055FD84226E213380034048C /* include */,
-				055FD84026E213380034048C /* module.modulemap */,
-				055FD84126E213380034048C /* Makefile */,
-			);
-			path = libgit2;
-			sourceTree = "<group>";
-		};
-		055FD84226E213380034048C /* include */ = {
-			isa = PBXGroup;
-			children = (
-				0580509C26E4174100845F70 /* git2 */,
-				055FD84326E213380034048C /* git2.h */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
 		055FD8A526E218B50034048C /* GitKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,11 +139,76 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		058050AB26E63E2F00845F70 /* Third-Party */ = {
+			isa = PBXGroup;
+			children = (
+				058050AC26E63E2F00845F70 /* libgit2 */,
+				05808B2326E63E6A00845F70 /* boringssl */,
+			);
+			path = "Third-Party";
+			sourceTree = "<group>";
+		};
+		058050AC26E63E2F00845F70 /* libgit2 */ = {
+			isa = PBXGroup;
+			children = (
+				058050AD26E63E2F00845F70 /* Makefile */,
+				058050AE26E63E2F00845F70 /* include */,
+				0580891626E63E6800845F70 /* lib */,
+				05808B2226E63E6A00845F70 /* module.modulemap */,
+			);
+			path = libgit2;
+			sourceTree = "<group>";
+		};
+		058050AE26E63E2F00845F70 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				0580AA4226E63F8E00845F70 /* git2 */,
+				058050AF26E63E2F00845F70 /* git2.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		0580891626E63E6800845F70 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				0580891726E63E6800845F70 /* libgit2.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		05808B2326E63E6A00845F70 /* boringssl */ = {
+			isa = PBXGroup;
+			children = (
+				05808B2426E63E6A00845F70 /* Makefile */,
+				05808B2526E63E6A00845F70 /* include */,
+				0580A43826E63E8800845F70 /* lib */,
+			);
+			path = boringssl;
+			sourceTree = "<group>";
+		};
+		05808B2526E63E6A00845F70 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				0580AA4326E63F9800845F70 /* openssl */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		0580A43826E63E8800845F70 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				0580A43926E63E8800845F70 /* libcrypto.a */,
+				0580A43A26E63E8800845F70 /* libdecrepit.a */,
+				0580A43B26E63E8800845F70 /* libssl.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
 		05A5D72226E20B9900C9888C = {
 			isa = PBXGroup;
 			children = (
+				058050AB26E63E2F00845F70 /* Third-Party */,
 				05A5D73B26E20BEB00C9888C /* xcconfig */,
-				055FD83F26E213380034048C /* libgit2 */,
 				055FD8A526E218B50034048C /* GitKit */,
 				05A5D72C26E20B9900C9888C /* Products */,
 				058050A126E41CF800845F70 /* Frameworks */,
@@ -295,8 +348,9 @@
 			files = (
 				0580509A26E4167B00845F70 /* Credentials.h in Headers */,
 				058050A026E4184A00845F70 /* GitKit.h in Headers */,
-				0580509E26E4175300845F70 /* git2.h in Headers */,
-				0580509D26E4174B00845F70 /* git2 in Headers */,
+				0580AA4426E63FA900845F70 /* git2 in Headers */,
+				0580AA4526E63FAC00845F70 /* git2.h in Headers */,
+				0580AA4626E63FAF00845F70 /* openssl in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +446,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/libgit2/include",
+					"$(SRCROOT)/Third-Party/libgit2/include",
+					"$(SRCROOT)/Third-Party/boringssl/include",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = GitKit/Info.plist;
@@ -402,12 +457,13 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/libgit2/build",
+					"$(SRCROOT)/Third-Party/libgit2/lib",
+					"$(SRCROOT)/Third-Party/boringssl/lib",
 					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.GitKit";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/libgit2 $(inherited)";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Third-Party/libgit2 $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -425,7 +481,8 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/libgit2/include",
+					"$(SRCROOT)/Third-Party/libgit2/include",
+					"$(SRCROOT)/Third-Party/boringssl/include",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = GitKit/Info.plist;
@@ -435,12 +492,13 @@
 					"@loader_path/Frameworks",
 				);
 				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/libgit2/build",
+					"$(SRCROOT)/Third-Party/libgit2/lib",
+					"$(SRCROOT)/Third-Party/boringssl/lib",
 					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.GitKit";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/libgit2 $(inherited)";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/Third-Party/libgit2 $(inherited)";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
