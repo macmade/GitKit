@@ -519,7 +519,8 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/Third-Party/libgit2/include",
-					"$(SRCROOT)/Third-Party/boringssl/include",
+					"$(SRCROOT)/Third-Party/openssl/include",
+					"$(SRCROOT)/Third-Party/libssh2/include",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = GitKit/Info.plist;
@@ -530,7 +531,8 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/Third-Party/libgit2/lib",
-					"$(SRCROOT)/Third-Party/boringssl/lib",
+					"$(SRCROOT)/Third-Party/openssl/lib",
+					"$(SRCROOT)/Third-Party/libssh2/lib",
 					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.GitKit";
@@ -554,7 +556,8 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/Third-Party/libgit2/include",
-					"$(SRCROOT)/Third-Party/boringssl/include",
+					"$(SRCROOT)/Third-Party/openssl/include",
+					"$(SRCROOT)/Third-Party/libssh2/include",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = GitKit/Info.plist;
@@ -565,7 +568,8 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(SRCROOT)/Third-Party/libgit2/lib",
-					"$(SRCROOT)/Third-Party/boringssl/lib",
+					"$(SRCROOT)/Third-Party/openssl/lib",
+					"$(SRCROOT)/Third-Party/libssh2/lib",
 					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.GitKit";

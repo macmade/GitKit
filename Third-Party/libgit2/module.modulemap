@@ -38,8 +38,8 @@ module libgit2
     
     link "git2"
     link "crypto"
-    link "decrepit"
     link "ssl"
+    link "ssh2"
     link "iconv"
     link "z"
 }
