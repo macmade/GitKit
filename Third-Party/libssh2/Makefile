@@ -48,7 +48,9 @@ update:
 	
 build: build_x86_64 build_arm64
 	
-	@:
+	@lipo -create -output $(DIR_LIB)/libssh2.a $(DIR_BUILD)/arm64/src/libssh2.a $(DIR_BUILD)/x86_64/src/libssh2.a
+	@rm -rf $(DIR_INC)
+	@cp -r $(DIR_SRC)/include $(DIR_INC)
 
 build_%: _FLAGS_DEPLOY_TARGET = 11.0
 build_%: _FLAGS_ARCH          = -target $*-apple-macos11.0
@@ -56,5 +58,5 @@ build_%: _FLAGS_STDLIB        = -stdlib=libc++
 build_%:
 	
 	@mkdir -p $(DIR_BUILD)/$*
-	@cd $(DIR_BUILD)/$* && cmake --verbose -DOPENSSL_ROOT_DIR=$(realpath .)/../boringssl -DOPENSSL_SSL_LIBRARY=$(realpath .)/../boringssl/lib/libssl.a -DOPENSSL_CRYPTO_LIBRARY=$(realpath .)/../boringssl/lib/libcrypto.a -DOPENSSL_INCLUDE_DIR=$(realpath .)/../boringssl/include -DCMAKE_OSX_ARCHITECTURES=$* -DMACOSX_DEPLOYMENT_TARGET=$(_FLAGS_DEPLOY_TARGET) -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS="-arch $* -mmacosx-version-min=$(_FLAGS_DEPLOY_TARGET)" $(DIR_SRC)
+	@cd $(DIR_BUILD)/$* && cmake --verbose -DOPENSSL_ROOT_DIR=$(realpath .)/../openssl -DOPENSSL_SSL_LIBRARY=$(realpath .)/../openssl/lib/libssl.a -DOPENSSL_CRYPTO_LIBRARY=$(realpath .)/../openssl/lib/libcrypto.a -DOPENSSL_INCLUDE_DIR=$(realpath .)/../openssl/include -DCMAKE_OSX_ARCHITECTURES=$* -DMACOSX_DEPLOYMENT_TARGET=$(_FLAGS_DEPLOY_TARGET) -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_FLAGS="-arch $* -mmacosx-version-min=$(_FLAGS_DEPLOY_TARGET)" $(DIR_SRC)
 	@cd $(DIR_BUILD)/$* && cmake --build .

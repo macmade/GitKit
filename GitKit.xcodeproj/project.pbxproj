@@ -20,7 +20,10 @@
 		058050A326E41CF800845F70 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058050A226E41CF800845F70 /* Security.framework */; };
 		0580AA4426E63FA900845F70 /* git2 in Headers */ = {isa = PBXBuildFile; fileRef = 0580AA4226E63F8E00845F70 /* git2 */; };
 		0580AA4526E63FAC00845F70 /* git2.h in Headers */ = {isa = PBXBuildFile; fileRef = 058050AF26E63E2F00845F70 /* git2.h */; };
-		0580AA4626E63FAF00845F70 /* openssl in Headers */ = {isa = PBXBuildFile; fileRef = 0580AA4326E63F9800845F70 /* openssl */; };
+		0580AA8926E6BFCF00845F70 /* openssl in Headers */ = {isa = PBXBuildFile; fileRef = 0580AA8126E6BEE700845F70 /* openssl */; };
+		0580AA8A26E6BFDE00845F70 /* libssh2_publickey.h in Headers */ = {isa = PBXBuildFile; fileRef = 0580AA8326E6BFAD00845F70 /* libssh2_publickey.h */; };
+		0580AA8B26E6BFDE00845F70 /* libssh2_sftp.h in Headers */ = {isa = PBXBuildFile; fileRef = 0580AA8426E6BFAD00845F70 /* libssh2_sftp.h */; };
+		0580AA8C26E6BFDE00845F70 /* libssh2.h in Headers */ = {isa = PBXBuildFile; fileRef = 0580AA8226E6BFAD00845F70 /* libssh2.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,10 @@
 		0580AA7F26E6BEDE00845F70 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		0580AA8026E6BEDE00845F70 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		0580AA8126E6BEE700845F70 /* openssl */ = {isa = PBXFileReference; lastKnownFileType = folder; path = openssl; sourceTree = "<group>"; };
+		0580AA8226E6BFAD00845F70 /* libssh2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libssh2.h; sourceTree = "<group>"; };
+		0580AA8326E6BFAD00845F70 /* libssh2_publickey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libssh2_publickey.h; sourceTree = "<group>"; };
+		0580AA8426E6BFAD00845F70 /* libssh2_sftp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libssh2_sftp.h; sourceTree = "<group>"; };
+		0580AA8826E6BFBE00845F70 /* libssh2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssh2.a; sourceTree = "<group>"; };
 		05A5D73C26E20BEB00C9888C /* Release - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release - ccache.xcconfig"; sourceTree = "<group>"; };
 		05A5D73D26E20BEB00C9888C /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		05A5D73E26E20BEB00C9888C /* Debug - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - ccache.xcconfig"; sourceTree = "<group>"; };
@@ -224,6 +231,9 @@
 		0580AA4B26E6434A00845F70 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				0580AA8326E6BFAD00845F70 /* libssh2_publickey.h */,
+				0580AA8426E6BFAD00845F70 /* libssh2_sftp.h */,
+				0580AA8226E6BFAD00845F70 /* libssh2.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -231,6 +241,7 @@
 		0580AA4E26E6434A00845F70 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				0580AA8826E6BFBE00845F70 /* libssh2.a */,
 			);
 			path = lib;
 			sourceTree = "<group>";
@@ -406,9 +417,12 @@
 			files = (
 				0580509A26E4167B00845F70 /* Credentials.h in Headers */,
 				058050A026E4184A00845F70 /* GitKit.h in Headers */,
+				0580AA8926E6BFCF00845F70 /* openssl in Headers */,
 				0580AA4426E63FA900845F70 /* git2 in Headers */,
 				0580AA4526E63FAC00845F70 /* git2.h in Headers */,
-				0580AA4626E63FAF00845F70 /* openssl in Headers */,
+				0580AA8A26E6BFDE00845F70 /* libssh2_publickey.h in Headers */,
+				0580AA8B26E6BFDE00845F70 /* libssh2_sftp.h in Headers */,
+				0580AA8C26E6BFDE00845F70 /* libssh2.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
