@@ -46,6 +46,7 @@
 		0580A43B26E63E8800845F70 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		0580AA4226E63F8E00845F70 /* git2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = git2; sourceTree = "<group>"; };
 		0580AA4326E63F9800845F70 /* openssl */ = {isa = PBXFileReference; lastKnownFileType = folder; path = openssl; sourceTree = "<group>"; };
+		0580AA4A26E6434A00845F70 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		05A5D73C26E20BEB00C9888C /* Release - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release - ccache.xcconfig"; sourceTree = "<group>"; };
 		05A5D73D26E20BEB00C9888C /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		05A5D73E26E20BEB00C9888C /* Debug - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug - ccache.xcconfig"; sourceTree = "<group>"; };
@@ -142,6 +143,7 @@
 		058050AB26E63E2F00845F70 /* Third-Party */ = {
 			isa = PBXGroup;
 			children = (
+				0580AA4926E6434A00845F70 /* libssh2 */,
 				058050AC26E63E2F00845F70 /* libgit2 */,
 				05808B2326E63E6A00845F70 /* boringssl */,
 			);
@@ -200,6 +202,30 @@
 				0580A43926E63E8800845F70 /* libcrypto.a */,
 				0580A43A26E63E8800845F70 /* libdecrepit.a */,
 				0580A43B26E63E8800845F70 /* libssl.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		0580AA4926E6434A00845F70 /* libssh2 */ = {
+			isa = PBXGroup;
+			children = (
+				0580AA4A26E6434A00845F70 /* Makefile */,
+				0580AA4B26E6434A00845F70 /* include */,
+				0580AA4E26E6434A00845F70 /* lib */,
+			);
+			path = libssh2;
+			sourceTree = "<group>";
+		};
+		0580AA4B26E6434A00845F70 /* include */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		0580AA4E26E6434A00845F70 /* lib */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = lib;
 			sourceTree = "<group>";
