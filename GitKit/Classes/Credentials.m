@@ -34,124 +34,12 @@
 
 int GitKit_Credentials( git_cred ** cred, const char * url, const char * usernameFromURL, unsigned int allowedTypes, void * payload )
 {
-    *( cred ) = NULL;
-    
-    ( void )cred;
     ( void )url;
     ( void )usernameFromURL;
     ( void )allowedTypes;
     ( void )payload;
     
-    return 0;
-    /*
-    Utility::Credentials c;
-    std::string          user;
-    std::string          password;
+    *( cred ) = NULL;
     
-    if( c.retrieve( Utility::Arguments::sharedInstance().keychainItem(), user, password ) )
-    {
-        if( git_cred_userpass_plaintext_new( cred, user.c_str(), password.c_str() ) == 0 )
-        {
-            return 0;
-        }
-        
-        *( cred ) = nullptr;
-    }
-    */
+    return 0;
 }
-/*
-        {
-            SecKeychainRef          keychain( nullptr );
-            CFStringRef             itemName;
-            CFMutableDictionaryRef  query;
-            SecKeychainItemRef      item( nullptr );
-            std::string             u;
-            std::string             p;
-            
-            if( SecKeychainCopyDefault( &keychain ) != errSecSuccess || keychain == nullptr )
-            {
-                return false;
-            }
-            
-            if( SecKeychainUnlock( keychain, 0, nullptr, false ) != errSecSuccess )
-            {
-                CFRelease( keychain );
-                
-                return false;
-            }
-            
-            itemName = CFStringCreateWithCString( nullptr, name.c_str(), kCFStringEncodingUTF8 );
-            query    = CFDictionaryCreateMutable( nullptr, 0, &kCFTypeDictionaryKeyCallBacks, &kCFTypeDictionaryValueCallBacks );
-            
-            CFDictionarySetValue( query, kSecMatchLimit, kSecMatchLimitOne );
-            CFDictionarySetValue( query, kSecClass, kSecClassGenericPassword );
-            CFDictionarySetValue( query, kSecAttrLabel, itemName );
-            
-            if( SecItemCopyMatching( query, static_cast< CFTypeRef * >( const_cast< const void ** >( reinterpret_cast< void ** >( &item ) ) ) ) == errSecSuccess && item != nullptr )
-            {
-                do
-                {
-                    {
-                        SecKeychainAttributeInfo * info( nullptr );
-                        SecKeychainAttributeList * list;
-                        UInt32                     length;
-                        void                     * data;
-                        
-                        if( item == nullptr || CFGetTypeID( item ) != SecKeychainItemGetTypeID() )
-                        {
-                            break;
-                        }
-                        
-                        if( SecKeychainAttributeInfoForItemID( keychain, CSSM_DL_DB_RECORD_GENERIC_PASSWORD, &info ) != errSecSuccess || info == nullptr )
-                        {
-                            break;
-                        }
-                        
-                        if( SecKeychainItemCopyAttributesAndData( item, info, NULL, &list, &length, &data ) != errSecSuccess )
-                        {
-                            break;
-                        }
-                        
-                        for( UInt32 i = 0; i < list->count; i++ )
-                        {
-                            if( list->attr[ i ].tag == kSecAccountItemAttr )
-                            {
-                                u = std::string( static_cast< const char * >( list->attr[ i ].data ), list->attr[ i ].length );
-                            }
-                        }
-                        
-                        p = std::string( static_cast< const char * >( data ), length );
-                        
-                        SecKeychainItemFreeAttributesAndData( list, data );
-                    }
-                }
-                while( 0 );
-            }
-            
-            if( item != nullptr )
-            {
-                CFRelease( item );
-            }
-            
-            CFRelease( query );
-            CFRelease( itemName );
-            CFRelease( keychain );
-            
-            if( u.length() > 0 && p.length() > 0 )
-            {
-                user     = u;
-                password = p;
-                
-                return true;
-            }
-            
-            return false;
-        }
-        
-        #else
-        
-        return false;
-        
-        #endif
-    }
-*/
