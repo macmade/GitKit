@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		050036D026E8070700143CE6 /* GraphResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050036CF26E8070700143CE6 /* GraphResult.swift */; };
 		055FD8AC26E218BB0034048C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5D84126E2105500C9888C /* Repository.swift */; };
 		055FD8AF26E21CB30034048C /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055FD8AE26E21CB30034048C /* Error.swift */; };
 		055FD8B126E21F160034048C /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055FD8B026E21F160034048C /* Branch.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		050036CF26E8070700143CE6 /* GraphResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphResult.swift; sourceTree = "<group>"; };
 		055FD8A426E218B50034048C /* GitKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GitKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		055FD8A726E218B50034048C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		055FD8AE26E21CB30034048C /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				055FD8B226E221BC0034048C /* Remote.swift */,
 				055FD8AE26E21CB30034048C /* Error.swift */,
 				0580508126E3BCDC00845F70 /* Signature.swift */,
+				050036CF26E8070700143CE6 /* GraphResult.swift */,
 				0580509F26E417E000845F70 /* GitKit.h */,
 				0580509826E4167B00845F70 /* Credentials.h */,
 				0580509926E4167B00845F70 /* Credentials.m */,
@@ -501,6 +504,7 @@
 				0580508226E3BCDC00845F70 /* Signature.swift in Sources */,
 				0580507B26E2D84800845F70 /* Either.swift in Sources */,
 				0580509B26E4167B00845F70 /* Credentials.m in Sources */,
+				050036D026E8070700143CE6 /* GraphResult.swift in Sources */,
 				055FD8B326E221BC0034048C /* Remote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

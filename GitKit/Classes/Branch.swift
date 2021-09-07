@@ -25,19 +25,15 @@
 import Foundation
 import libgit2
 
-public class Branch: Equatable
+@objc public class Branch: NSObject
 {
-    public                     let name:       String
-    private                    let ref:        OpaquePointer
-    public private( set )      var lastCommit: Commit?
-    public private( set ) weak var repository: Repository?
+    @objc public private( set ) dynamic      var name:       String
+    @objc public private( set ) dynamic      var lastCommit: Commit?
+    @objc public private( set ) dynamic weak var repository: Repository?
     
-    public static func == ( lhs: Branch, rhs: Branch ) -> Bool
-    {
-        lhs.repository == rhs.repository && lhs.name == rhs.name
-    }
+    private var ref: OpaquePointer
     
-    public init( repository: Repository, ref: OpaquePointer ) throws
+    @objc public init( repository: Repository, ref: OpaquePointer ) throws
     {
         var name: UnsafePointer< CChar >!
         
@@ -73,7 +69,7 @@ public class Branch: Equatable
         git_reference_free( self.ref )
     }
     
-    public func graph( with branch: Branch ) -> ( ahead: Int, behind: Int )?
+    @objc public func graph( with branch: Branch ) -> GraphResult?
     {
         var oid1 = git_reference_target( self.ref )
         var oid2 = git_reference_target( branch.ref )
@@ -112,9 +108,24 @@ public class Branch: Equatable
         
         if git_graph_ahead_behind( &ahead, &behind, self.repository?.repository, oid1, oid2 ) == 0
         {
-            return ( ahead: ahead, behind: behind )
+            return GraphResult( ahead: ahead, behind: behind )
         }
         
         return nil
+    }
+    
+    public override func isEqual( _ object: Any?) -> Bool
+    {
+        guard let object = object as? Branch else
+        {
+            return false
+        }
+        
+        return self.repository == object.repository && self.name == object.name
+    }
+    
+    public override func isEqual( to object: Any? ) -> Bool
+    {
+        self.isEqual( object )
     }
 }

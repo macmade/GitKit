@@ -25,26 +25,22 @@
 import Foundation
 import libgit2
 
-public class Commit: Equatable
+@objc public class Commit: NSObject
 {
-    public private( set ) weak var repository: Repository?
-    private                    let commit:     OpaquePointer
-    private                    let ref:        OpaquePointer?
-    private                    let oid:        UnsafePointer< git_oid >
-    public                     let hash:       String
-    public                     let body:       String?
-    public                     let message:    String?
-    public                     let summary:    String?
-    public                     let date:       Date
-    public                     let author:     Signature
-    public                     let committer:  Signature
+    @objc public private( set ) dynamic weak var repository: Repository?
+    @objc public private( set ) dynamic      var commitHash: String
+    @objc public private( set ) dynamic      var body:       String?
+    @objc public private( set ) dynamic      var message:    String?
+    @objc public private( set ) dynamic      var summary:    String?
+    @objc public private( set ) dynamic      var date:       Date
+    @objc public private( set ) dynamic      var author:     Signature
+    @objc public private( set ) dynamic      var committer:  Signature
     
-    public static func == ( lhs: Commit, rhs: Commit ) -> Bool
-    {
-        lhs.repository == rhs.repository && lhs.hash == rhs.hash
-    }
+    private var commit: OpaquePointer
+    private var ref:    OpaquePointer?
+    private var oid:    UnsafePointer< git_oid >
     
-    public convenience init( repository: Repository, ref: OpaquePointer ) throws
+    @objc public convenience init( repository: Repository, ref: OpaquePointer ) throws
     {
         guard let oid = git_reference_target( ref ) else
         {
@@ -54,7 +50,7 @@ public class Commit: Equatable
         try self.init( repository: repository, oid: oid, ref: ref )
     }
     
-    public init( repository: Repository, oid: UnsafePointer< git_oid >, ref: OpaquePointer? ) throws
+    @objc public init( repository: Repository, oid: UnsafePointer< git_oid >, ref: OpaquePointer? ) throws
     {
         var commit: OpaquePointer!
         
@@ -89,34 +85,22 @@ public class Commit: Equatable
         {
             self.body = String( cString: body )
         }
-        else
-        {
-            self.body = nil
-        }
         
         if let message = git_commit_message( commit )
         {
             self.message = String( cString: message )
-        }
-        else
-        {
-            self.message = nil
         }
         
         if let summary = git_commit_message( commit )
         {
             self.summary = String( cString: summary )
         }
-        else
-        {
-            self.summary = nil
-        }
         
         self.oid        = oid
         self.commit     = commit
         self.repository = repository
         self.ref        = ref
-        self.hash       = String( cString: hash )
+        self.commitHash = String( cString: hash )
         self.date       = Date( timeIntervalSince1970: TimeInterval( git_commit_time( commit ) ) )
         self.author     = Signature( signature: author )
         self.committer  = Signature( signature: committer )
@@ -130,5 +114,20 @@ public class Commit: Equatable
         }
         
         git_commit_free( self.commit )
+    }
+    
+    public override func isEqual( _ object: Any?) -> Bool
+    {
+        guard let object = object as? Commit else
+        {
+            return false
+        }
+        
+        return self.repository == object.repository && self.commitHash == object.commitHash
+    }
+    
+    public override func isEqual( to object: Any? ) -> Bool
+    {
+        self.isEqual( object )
     }
 }

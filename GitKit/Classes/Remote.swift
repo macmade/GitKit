@@ -25,19 +25,15 @@
 import Foundation
 import libgit2
 
-public class Remote: Equatable
+@objc public class Remote: NSObject
 {
-    public                     let name:       String
-    public                     let url:        URL
-    private                    let remote:     OpaquePointer
-    public private( set ) weak var repository: Repository?
+    @objc public private( set ) dynamic      var name:       String
+    @objc public private( set ) dynamic      var url:        URL
+    @objc public private( set ) dynamic weak var repository: Repository?
     
-    public static func == ( lhs: Remote, rhs: Remote ) -> Bool
-    {
-        lhs.repository == rhs.repository && lhs.url == rhs.url
-    }
+    private var remote: OpaquePointer
     
-    public init( repository: Repository, remote: OpaquePointer ) throws
+    @objc public init( repository: Repository, remote: OpaquePointer ) throws
     {
         guard let name = git_remote_name( remote ) else
         {
@@ -66,7 +62,7 @@ public class Remote: Equatable
     }
     
     @discardableResult
-    public func fetch() -> Bool
+    @objc public func fetch() -> Bool
     {
         var options = git_fetch_options()
         
@@ -93,5 +89,20 @@ public class Remote: Equatable
         #endif
         
         return status == 0
+    }
+    
+    public override func isEqual( _ object: Any?) -> Bool
+    {
+        guard let object = object as? Remote else
+        {
+            return false
+        }
+        
+        return self.repository == object.repository && self.url == object.url
+    }
+    
+    public override func isEqual( to object: Any? ) -> Bool
+    {
+        self.isEqual( object )
     }
 }

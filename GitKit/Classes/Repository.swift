@@ -25,26 +25,21 @@
 import Foundation
 import libgit2
 
-public class Repository: Equatable
+@objc public class Repository: NSObject
 {
+    @objc public private( set ) dynamic var url:      URL
+    @objc public private( set ) dynamic var branches: [ Branch ] = []
+    @objc public private( set ) dynamic var remotes:  [ Remote ] = []
+          public private( set ) dynamic var head:     Either< Branch, Commit >?
     
-    public                let url:        URL
-    public private( set ) var branches:   [ Branch ] = []
-    public private( set ) var remotes:    [ Remote ] = []
-    public private( set ) var head:       Either< Branch, Commit >?
-    internal              var repository: OpaquePointer!
+    internal var repository: OpaquePointer!
     
-    public static func == ( lhs: Repository, rhs: Repository ) -> Bool
-    {
-        lhs.url == rhs.url
-    }
-    
-    public convenience init( path: String ) throws
+    @objc public convenience init( path: String ) throws
     {
         try self.init( url: URL( fileURLWithPath: path ) )
     }
     
-    public init( url: URL ) throws
+    @objc public init( url: URL ) throws
     {
         var repository: OpaquePointer!
         
@@ -58,6 +53,7 @@ public class Repository: Equatable
         self.url        = url
         self.repository = repository
         
+        super.init()
         self.update()
     }
     
@@ -66,7 +62,7 @@ public class Repository: Equatable
         git_repository_free( self.repository )
     }
     
-    public func update()
+    @objc public func update()
     {
         try? self.updateBranches()
         try? self.updateRemotes()
@@ -149,7 +145,7 @@ public class Repository: Equatable
         }
     }
     
-    public func isDirty() -> Bool
+    @objc public func isDirty() -> Bool
     {
         var list:     OpaquePointer!
         var options = git_status_options()
@@ -178,5 +174,20 @@ public class Repository: Equatable
         }
         
         return false
+    }
+    
+    public override func isEqual( _ object: Any?) -> Bool
+    {
+        guard let object = object as? Repository else
+        {
+            return false
+        }
+        
+        return self.url == object.url
+    }
+    
+    public override func isEqual( to object: Any? ) -> Bool
+    {
+        self.isEqual( object )
     }
 }

@@ -23,27 +23,26 @@
  ******************************************************************************/
 
 import Foundation
-import libgit2
 
-@objc public class Signature: NSObject
+@objc public class GraphResult: NSObject
 {
-    @objc public private( set ) dynamic var name:  String
-    @objc public private( set ) dynamic var email: String
+    @objc public private( set ) dynamic var ahead:  Int
+    @objc public private( set ) dynamic var behind: Int
     
-    @objc public init( signature: UnsafePointer< git_signature > )
+    @objc public init( ahead: Int, behind: Int )
     {
-        self.name  = String( cString: signature.pointee.name )
-        self.email = String( cString: signature.pointee.email )
+        self.ahead  = ahead
+        self.behind = behind
     }
     
     public override func isEqual( _ object: Any?) -> Bool
     {
-        guard let object = object as? Signature else
+        guard let object = object as? GraphResult else
         {
             return false
         }
         
-        return self.name == object.name && self.email == self.email
+        return self.ahead == object.ahead && self.behind == object.behind
     }
     
     public override func isEqual( to object: Any? ) -> Bool
