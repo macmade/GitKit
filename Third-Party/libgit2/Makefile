@@ -58,5 +58,5 @@ build_%: _FLAGS_STDLIB        = -stdlib=libc++
 build_%:
 	
 	@mkdir -p $(DIR_BUILD)/$*
-	@cd $(DIR_BUILD)/$* && cmake -DLIBSSH2_FOUND=1 -DOPENSSL_ROOT_DIR=$(realpath .)/../openssl -DOPENSSL_CRYPTO_LIBRARY=$(realpath .)/../openssl -DOPENSSL_INCLUDE_DIR=$(realpath .)/../openssl/include -DCMAKE_OSX_ARCHITECTURES=$* -DMACOSX_DEPLOYMENT_TARGET=$(_FLAGS_DEPLOY_TARGET) -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=Release -DTHREADSAFE=ON -DBUILD_CLAR=OFF -DCMAKE_C_FLAGS="-arch $* -mmacosx-version-min=$(_FLAGS_DEPLOY_TARGET) -I$(realpath .)/../libssh2/include" -DCMAKE_CXX_FLAGS="-arch $* -mmacosx-version-min=$(_FLAGS_DEPLOY_TARGET) -$(_FLAGS_STDLIB) -I$(realpath .)/../libssh2/include" $(DIR_SRC)
+	@cd $(DIR_BUILD)/$* && cmake -DGIT_SSH_MEMORY_CREDENTIALS=1 -DLIBSSH2_FOUND=1 -DOPENSSL_ROOT_DIR=$(realpath .)/../openssl -DOPENSSL_CRYPTO_LIBRARY=$(realpath .)/../openssl -DOPENSSL_INCLUDE_DIR=$(realpath .)/../openssl/include -DCMAKE_OSX_ARCHITECTURES=$* -DMACOSX_DEPLOYMENT_TARGET=$(_FLAGS_DEPLOY_TARGET) -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=Release -DTHREADSAFE=ON -DBUILD_CLAR=OFF -DCMAKE_C_FLAGS="-arch $* -mmacosx-version-min=$(_FLAGS_DEPLOY_TARGET) -I$(realpath .)/../libssh2/include" -DCMAKE_CXX_FLAGS="-arch $* -mmacosx-version-min=$(_FLAGS_DEPLOY_TARGET) -$(_FLAGS_STDLIB) -I$(realpath .)/../libssh2/include" $(DIR_SRC)
 	@cd $(DIR_BUILD)/$* && cmake --build .
