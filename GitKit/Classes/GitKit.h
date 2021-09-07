@@ -23,3 +23,5 @@
  ******************************************************************************/
 
 #import <GitKit/Credentials.h>
+#import <GitKit/CredentialsHelper.h>
+#import <GitKit/RepositoryDelegate.h>

@@ -32,6 +32,8 @@ import libgit2
     @objc public private( set ) dynamic var remotes:  [ Remote ] = []
           public private( set ) dynamic var head:     Either< Branch, Commit >?
     
+    @objc public dynamic weak var delegate: RepositoryDelegate?
+    
     internal var repository: OpaquePointer!
     
     @objc public convenience init( path: String ) throws

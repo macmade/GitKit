@@ -68,9 +68,15 @@ import libgit2
         
         git_fetch_options_init( &options, UInt32( GIT_FETCH_OPTIONS_VERSION ) )
         
-        options.callbacks.credentials = GitKit_Credentials
+        options.callbacks.credentials = GKCredentialsHelperCallback
         
-        let status = git_remote_fetch( self.remote, nil, nil, nil )
+        if let delegate = self.repository?.delegate
+        {
+            let payload               = Unmanaged.passUnretained( delegate )
+            options.callbacks.payload = payload.toOpaque()
+        }
+        
+        let status = git_remote_fetch( self.remote, nil, &options, nil )
         
         #if DEBUG
         if status != 0

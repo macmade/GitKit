@@ -46,7 +46,7 @@ update:
 	
 	@cd $(DIR_SRC) && git pull
 	
-build: #build_x86_64 build_arm64
+build: build_x86_64 build_arm64
 	
 	@lipo -create -output $(DIR_LIB)/libssl.a $(DIR_BUILD)/arm64/lib/libssl.a $(DIR_BUILD)/x86_64/lib/libssl.a
 	@lipo -create -output $(DIR_LIB)/libcrypto.a $(DIR_BUILD)/arm64/lib/libcrypto.a $(DIR_BUILD)/x86_64/lib/libcrypto.a
@@ -59,6 +59,6 @@ build_%:
 	
 	@cd $(DIR_SRC) && make clean
 	@cd $(DIR_SRC) && make distclean
-	@cd $(DIR_SRC) && ./Configure --prefix=$(DIR_BUILD)/$* no-shared $(_FLAGS_STDLIB) $(_FLAGS_ARCH)
+	@cd $(DIR_SRC) && ./Configure --prefix=$(DIR_BUILD)/$* no-shared no-asm $(_FLAGS_STDLIB) $(_FLAGS_ARCH)
 	@cd $(DIR_SRC) && make
 	@cd $(DIR_SRC) && make install

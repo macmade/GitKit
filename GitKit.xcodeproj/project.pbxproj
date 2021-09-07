@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		050036D026E8070700143CE6 /* GraphResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050036CF26E8070700143CE6 /* GraphResult.swift */; };
+		050036D626E808D400143CE6 /* GraphResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050036D326E808D400143CE6 /* GraphResult.swift */; };
+		050036D926E8090100143CE6 /* CredentialsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580509926E4167B00845F70 /* CredentialsHelper.m */; };
+		050036DC26E80E5D00143CE6 /* RepositoryDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 050036D426E808D400143CE6 /* RepositoryDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		050036E026E80E8C00143CE6 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 050036DF26E80E8B00143CE6 /* Credentials.m */; };
+		050036E526E80F0800143CE6 /* Credentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 050036D526E808D400143CE6 /* Credentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		055FD8AC26E218BB0034048C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5D84126E2105500C9888C /* Repository.swift */; };
 		055FD8AF26E21CB30034048C /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055FD8AE26E21CB30034048C /* Error.swift */; };
 		055FD8B126E21F160034048C /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055FD8B026E21F160034048C /* Branch.swift */; };
@@ -15,8 +19,7 @@
 		0580507926E2D70B00845F70 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580507826E2D70B00845F70 /* Commit.swift */; };
 		0580507B26E2D84800845F70 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580507A26E2D84800845F70 /* Either.swift */; };
 		0580508226E3BCDC00845F70 /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580508126E3BCDC00845F70 /* Signature.swift */; };
-		0580509A26E4167B00845F70 /* Credentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 0580509826E4167B00845F70 /* Credentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0580509B26E4167B00845F70 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580509926E4167B00845F70 /* Credentials.m */; };
+		0580509A26E4167B00845F70 /* CredentialsHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 0580509826E4167B00845F70 /* CredentialsHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		058050A026E4184A00845F70 /* GitKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 0580509F26E417E000845F70 /* GitKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		058050A326E41CF800845F70 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058050A226E41CF800845F70 /* Security.framework */; };
 		0580AA4426E63FA900845F70 /* git2 in Headers */ = {isa = PBXBuildFile; fileRef = 0580AA4226E63F8E00845F70 /* git2 */; };
@@ -28,7 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		050036CF26E8070700143CE6 /* GraphResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphResult.swift; sourceTree = "<group>"; };
+		050036D326E808D400143CE6 /* GraphResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphResult.swift; sourceTree = "<group>"; };
+		050036D426E808D400143CE6 /* RepositoryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepositoryDelegate.h; sourceTree = "<group>"; };
+		050036D526E808D400143CE6 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
+		050036DF26E80E8B00143CE6 /* Credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
 		055FD8A426E218B50034048C /* GitKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GitKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		055FD8A726E218B50034048C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		055FD8AE26E21CB30034048C /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -37,8 +43,8 @@
 		0580507826E2D70B00845F70 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		0580507A26E2D84800845F70 /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 		0580508126E3BCDC00845F70 /* Signature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signature.swift; sourceTree = "<group>"; };
-		0580509826E4167B00845F70 /* Credentials.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
-		0580509926E4167B00845F70 /* Credentials.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
+		0580509826E4167B00845F70 /* CredentialsHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CredentialsHelper.h; sourceTree = "<group>"; };
+		0580509926E4167B00845F70 /* CredentialsHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CredentialsHelper.m; sourceTree = "<group>"; };
 		0580509F26E417E000845F70 /* GitKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GitKit.h; sourceTree = "<group>"; };
 		058050A226E41CF800845F70 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		058050AD26E63E2F00845F70 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -131,17 +137,20 @@
 		055FD8AD26E218DA0034048C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				0580507A26E2D84800845F70 /* Either.swift */,
-				05A5D84126E2105500C9888C /* Repository.swift */,
-				0580507826E2D70B00845F70 /* Commit.swift */,
 				055FD8B026E21F160034048C /* Branch.swift */,
-				055FD8B226E221BC0034048C /* Remote.swift */,
+				0580507826E2D70B00845F70 /* Commit.swift */,
+				050036D526E808D400143CE6 /* Credentials.h */,
+				050036DF26E80E8B00143CE6 /* Credentials.m */,
+				0580509826E4167B00845F70 /* CredentialsHelper.h */,
+				0580509926E4167B00845F70 /* CredentialsHelper.m */,
+				0580507A26E2D84800845F70 /* Either.swift */,
 				055FD8AE26E21CB30034048C /* Error.swift */,
-				0580508126E3BCDC00845F70 /* Signature.swift */,
-				050036CF26E8070700143CE6 /* GraphResult.swift */,
 				0580509F26E417E000845F70 /* GitKit.h */,
-				0580509826E4167B00845F70 /* Credentials.h */,
-				0580509926E4167B00845F70 /* Credentials.m */,
+				050036D326E808D400143CE6 /* GraphResult.swift */,
+				055FD8B226E221BC0034048C /* Remote.swift */,
+				05A5D84126E2105500C9888C /* Repository.swift */,
+				050036D426E808D400143CE6 /* RepositoryDelegate.h */,
+				0580508126E3BCDC00845F70 /* Signature.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -418,7 +427,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0580509A26E4167B00845F70 /* Credentials.h in Headers */,
+				0580509A26E4167B00845F70 /* CredentialsHelper.h in Headers */,
+				050036DC26E80E5D00143CE6 /* RepositoryDelegate.h in Headers */,
 				058050A026E4184A00845F70 /* GitKit.h in Headers */,
 				0580AA8926E6BFCF00845F70 /* openssl in Headers */,
 				0580AA4426E63FA900845F70 /* git2 in Headers */,
@@ -426,6 +436,7 @@
 				0580AA8A26E6BFDE00845F70 /* libssh2_publickey.h in Headers */,
 				0580AA8B26E6BFDE00845F70 /* libssh2_sftp.h in Headers */,
 				0580AA8C26E6BFDE00845F70 /* libssh2.h in Headers */,
+				050036E526E80F0800143CE6 /* Credentials.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,13 +509,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0580507926E2D70B00845F70 /* Commit.swift in Sources */,
+				050036E026E80E8C00143CE6 /* Credentials.m in Sources */,
 				055FD8AF26E21CB30034048C /* Error.swift in Sources */,
 				055FD8B126E21F160034048C /* Branch.swift in Sources */,
 				055FD8AC26E218BB0034048C /* Repository.swift in Sources */,
+				050036D926E8090100143CE6 /* CredentialsHelper.m in Sources */,
 				0580508226E3BCDC00845F70 /* Signature.swift in Sources */,
+				050036D626E808D400143CE6 /* GraphResult.swift in Sources */,
 				0580507B26E2D84800845F70 /* Either.swift in Sources */,
-				0580509B26E4167B00845F70 /* Credentials.m in Sources */,
-				050036D026E8070700143CE6 /* GraphResult.swift in Sources */,
 				055FD8B326E221BC0034048C /* Remote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

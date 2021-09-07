@@ -22,7 +22,18 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-typedef struct git_credential git_credential;
-typedef        git_credential git_cred;
+@import Foundation;
 
-int GitKit_Credentials( git_cred ** cred, const char * url, const char * usernameFromURL, unsigned int allowedTypes, void * payload );
+NS_ASSUME_NONNULL_BEGIN
+
+NS_SWIFT_NAME( Credentials )
+@interface GKCredentials: NSObject
+
+@property( nonatomic, readwrite, strong ) NSString * username;
+@property( nonatomic, readwrite, strong ) NSString * password;
+
+- ( instancetype )initWithUsername: ( NSString * )username password: ( NSString * )password NS_DESIGNATED_INITIALIZER;
+
+@end
+
+NS_ASSUME_NONNULL_END
