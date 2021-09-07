@@ -10,8 +10,10 @@
 		050036D626E808D400143CE6 /* GraphResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 050036D326E808D400143CE6 /* GraphResult.swift */; };
 		050036D926E8090100143CE6 /* CredentialsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0580509926E4167B00845F70 /* CredentialsHelper.m */; };
 		050036DC26E80E5D00143CE6 /* RepositoryDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 050036D426E808D400143CE6 /* RepositoryDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		050036E026E80E8C00143CE6 /* Credentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 050036DF26E80E8B00143CE6 /* Credentials.m */; };
-		050036E526E80F0800143CE6 /* Credentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 050036D526E808D400143CE6 /* Credentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		050036E026E80E8C00143CE6 /* HTTPCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 050036DF26E80E8B00143CE6 /* HTTPCredentials.m */; };
+		050036E526E80F0800143CE6 /* HTTPCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 050036D526E808D400143CE6 /* HTTPCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		050036E826E8260500143CE6 /* SSHCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 050036E626E8260500143CE6 /* SSHCredentials.m */; };
+		050036E926E8260500143CE6 /* SSHCredentials.h in Headers */ = {isa = PBXBuildFile; fileRef = 050036E726E8260500143CE6 /* SSHCredentials.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		055FD8AC26E218BB0034048C /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A5D84126E2105500C9888C /* Repository.swift */; };
 		055FD8AF26E21CB30034048C /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055FD8AE26E21CB30034048C /* Error.swift */; };
 		055FD8B126E21F160034048C /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055FD8B026E21F160034048C /* Branch.swift */; };
@@ -33,8 +35,10 @@
 /* Begin PBXFileReference section */
 		050036D326E808D400143CE6 /* GraphResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphResult.swift; sourceTree = "<group>"; };
 		050036D426E808D400143CE6 /* RepositoryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepositoryDelegate.h; sourceTree = "<group>"; };
-		050036D526E808D400143CE6 /* Credentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Credentials.h; sourceTree = "<group>"; };
-		050036DF26E80E8B00143CE6 /* Credentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Credentials.m; sourceTree = "<group>"; };
+		050036D526E808D400143CE6 /* HTTPCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPCredentials.h; sourceTree = "<group>"; };
+		050036DF26E80E8B00143CE6 /* HTTPCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPCredentials.m; sourceTree = "<group>"; };
+		050036E626E8260500143CE6 /* SSHCredentials.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSHCredentials.m; sourceTree = "<group>"; };
+		050036E726E8260500143CE6 /* SSHCredentials.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSHCredentials.h; sourceTree = "<group>"; };
 		055FD8A426E218B50034048C /* GitKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GitKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		055FD8A726E218B50034048C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		055FD8AE26E21CB30034048C /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -139,8 +143,10 @@
 			children = (
 				055FD8B026E21F160034048C /* Branch.swift */,
 				0580507826E2D70B00845F70 /* Commit.swift */,
-				050036D526E808D400143CE6 /* Credentials.h */,
-				050036DF26E80E8B00143CE6 /* Credentials.m */,
+				050036D526E808D400143CE6 /* HTTPCredentials.h */,
+				050036DF26E80E8B00143CE6 /* HTTPCredentials.m */,
+				050036E726E8260500143CE6 /* SSHCredentials.h */,
+				050036E626E8260500143CE6 /* SSHCredentials.m */,
 				0580509826E4167B00845F70 /* CredentialsHelper.h */,
 				0580509926E4167B00845F70 /* CredentialsHelper.m */,
 				0580507A26E2D84800845F70 /* Either.swift */,
@@ -433,10 +439,11 @@
 				0580AA8926E6BFCF00845F70 /* openssl in Headers */,
 				0580AA4426E63FA900845F70 /* git2 in Headers */,
 				0580AA4526E63FAC00845F70 /* git2.h in Headers */,
+				050036E926E8260500143CE6 /* SSHCredentials.h in Headers */,
 				0580AA8A26E6BFDE00845F70 /* libssh2_publickey.h in Headers */,
 				0580AA8B26E6BFDE00845F70 /* libssh2_sftp.h in Headers */,
 				0580AA8C26E6BFDE00845F70 /* libssh2.h in Headers */,
-				050036E526E80F0800143CE6 /* Credentials.h in Headers */,
+				050036E526E80F0800143CE6 /* HTTPCredentials.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,7 +516,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0580507926E2D70B00845F70 /* Commit.swift in Sources */,
-				050036E026E80E8C00143CE6 /* Credentials.m in Sources */,
+				050036E826E8260500143CE6 /* SSHCredentials.m in Sources */,
+				050036E026E80E8C00143CE6 /* HTTPCredentials.m in Sources */,
 				055FD8AF26E21CB30034048C /* Error.swift in Sources */,
 				055FD8B126E21F160034048C /* Branch.swift in Sources */,
 				055FD8AC26E218BB0034048C /* Repository.swift in Sources */,

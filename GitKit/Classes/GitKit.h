@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-#import <GitKit/Credentials.h>
+#import <GitKit/HTTPCredentials.h>
+#import <GitKit/SSHCredentials.h>
 #import <GitKit/CredentialsHelper.h>
 #import <GitKit/RepositoryDelegate.h>

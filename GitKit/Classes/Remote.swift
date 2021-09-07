@@ -94,6 +94,10 @@ import libgit2
         }
         #endif
         
+        if( status == 0)
+        {
+        print( "Status: \( status ) URL: \( url )" )
+        }
         return status == 0
     }
     

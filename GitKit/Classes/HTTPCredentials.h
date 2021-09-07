@@ -26,13 +26,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-NS_SWIFT_NAME( Credentials )
-@interface GKCredentials: NSObject
+NS_SWIFT_NAME( HTTPCredentials )
+@interface GKHTTPCredentials: NSObject
 
 @property( nonatomic, readwrite, strong ) NSString * username;
 @property( nonatomic, readwrite, strong ) NSString * password;
 
 - ( instancetype )initWithUsername: ( NSString * )username password: ( NSString * )password NS_DESIGNATED_INITIALIZER;
+- ( instancetype )init NS_UNAVAILABLE;
 
 @end
 

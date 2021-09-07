@@ -1,18 +1,18 @@
 /*******************************************************************************
  * The MIT License (MIT)
- *
+ * 
  * Copyright (c) 2021 Jean-David Gadina - www.xs-labs.com
- *
+ * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- *
+ * 
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- *
+ * 
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -22,24 +22,20 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-#import "Credentials.h"
+@import Foundation;
 
-@implementation GKCredentials
+NS_ASSUME_NONNULL_BEGIN
 
-- ( instancetype )initWithUsername: ( NSString * )username password: ( NSString * )password
-{
-    if( ( self = [ super init ] ) )
-    {
-        self.username = username;
-        self.password = password;
-    }
-    
-    return self;
-}
+NS_SWIFT_NAME( SSHCredentials )
+@interface GKSSHCredentials: NSObject
 
-- ( instancetype )init
-{
-    return [ self initWithUsername: @"" password: @"" ];
-}
+@property( nonatomic, readwrite, strong ) NSURL    * publicKey;
+@property( nonatomic, readwrite, strong ) NSURL    * privateKey;
+@property( nonatomic, readwrite, strong ) NSString * password;
+
+- ( instancetype )initWithPublicKey: ( NSURL * )publicKey privateKey: ( NSURL * )privateKey password: ( NSString * )password NS_DESIGNATED_INITIALIZER;
+- ( instancetype )init NS_UNAVAILABLE;
 
 @end
+
+NS_ASSUME_NONNULL_END

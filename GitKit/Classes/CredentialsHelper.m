@@ -24,7 +24,8 @@
 
 #import "CredentialsHelper.h"
 #import "RepositoryDelegate.h"
-#import "Credentials.h"
+#import "HTTPCredentials.h"
+#import "SSHCredentials.h"
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
@@ -36,8 +37,6 @@
 
 int GKCredentialsHelperCallback( git_cred ** cred, const char * url, const char * usernameFromURL, unsigned int allowedTypes, void * payload )
 {
-    NSString * username;
-    NSString * password;
     NSString * urlString;
     NSURL    * remoteURL;
     
@@ -59,34 +58,40 @@ int GKCredentialsHelperCallback( git_cred ** cred, const char * url, const char 
         return -1;
     }
     
-    id< GKRepositoryDelegate > delegate    = ( __bridge id< GKRepositoryDelegate > )payload;
-    GKCredentials            * credentials = [ delegate authenticationForURL: remoteURL ];
+    id< GKRepositoryDelegate > delegate = ( __bridge id< GKRepositoryDelegate > )payload;
     
-    if( credentials != nil )
+    if( [ remoteURL.scheme.lowercaseString isEqualToString: @"http" ] || [ remoteURL.scheme.lowercaseString isEqualToString: @"https" ] )
     {
-        username = credentials.username;
-        password = credentials.password;
+        GKHTTPCredentials * credentials = [ delegate HTTPAuthenticationForURL: remoteURL ];
+        
+        if( credentials == nil )
+        {
+            return git_cred_userpass_plaintext_new( cred, "", "" );
+        }
+        
+        return git_cred_userpass_plaintext_new
+        (
+            cred,
+            credentials.username.UTF8String,
+            credentials.password.UTF8String
+        );
     }
     else
     {
-        username = @"";
-        password = @"";
-    }
-    
-    if( git_cred_userpass_plaintext_new( cred, username.UTF8String, password.UTF8String ) == 0 )
-    {
-        return 0;
-    }
-    else
-    {
-        #ifdef DEBUG
+        GKSSHCredentials * credentials = [ delegate SSHAuthenticationForURL: remoteURL ];
         
-        const git_error * error = git_error_last();
+        if( credentials == nil )
+        {
+            return -1;
+        }
         
-        NSLog( @"Error creating plaintext credentials: %s", error->message );
-        
-        #endif
-        
-        return -1;
+        return git_cred_ssh_key_new
+        (
+            cred,
+            usernameFromURL,
+            credentials.publicKey.path.UTF8String,
+            credentials.privateKey.path.UTF8String,
+            credentials.password.UTF8String
+        );
     }
 }
