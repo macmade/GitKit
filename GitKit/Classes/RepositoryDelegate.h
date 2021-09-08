@@ -37,6 +37,10 @@ NS_SWIFT_NAME( RepositoryDelegate )
 - ( nullable GKHTTPCredentials * )HTTPAuthenticationForURL: ( NSURL * )url;
 - ( nullable GKSSHCredentials  * )SSHAuthenticationForURL:  ( NSURL * )url;
 
+@optional
+
+- ( void )fetchDidFailForURL: ( NSURL * )url status: ( NSInteger )status message: ( NSString * _Nullable )message;
+
 @end
 
 NS_ASSUME_NONNULL_END

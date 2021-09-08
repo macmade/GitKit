@@ -143,20 +143,20 @@
 			children = (
 				055FD8B026E21F160034048C /* Branch.swift */,
 				0580507826E2D70B00845F70 /* Commit.swift */,
-				050036D526E808D400143CE6 /* HTTPCredentials.h */,
-				050036DF26E80E8B00143CE6 /* HTTPCredentials.m */,
-				050036E726E8260500143CE6 /* SSHCredentials.h */,
-				050036E626E8260500143CE6 /* SSHCredentials.m */,
 				0580509826E4167B00845F70 /* CredentialsHelper.h */,
 				0580509926E4167B00845F70 /* CredentialsHelper.m */,
 				0580507A26E2D84800845F70 /* Either.swift */,
 				055FD8AE26E21CB30034048C /* Error.swift */,
 				0580509F26E417E000845F70 /* GitKit.h */,
 				050036D326E808D400143CE6 /* GraphResult.swift */,
+				050036D526E808D400143CE6 /* HTTPCredentials.h */,
+				050036DF26E80E8B00143CE6 /* HTTPCredentials.m */,
 				055FD8B226E221BC0034048C /* Remote.swift */,
 				05A5D84126E2105500C9888C /* Repository.swift */,
 				050036D426E808D400143CE6 /* RepositoryDelegate.h */,
 				0580508126E3BCDC00845F70 /* Signature.swift */,
+				050036E726E8260500143CE6 /* SSHCredentials.h */,
+				050036E626E8260500143CE6 /* SSHCredentials.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";

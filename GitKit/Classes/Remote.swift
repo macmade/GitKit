@@ -78,9 +78,10 @@ import libgit2
         
         let status = git_remote_fetch( self.remote, nil, &options, nil )
         
-        #if DEBUG
         if status != 0
         {
+            #if DEBUG
+            
             if let error = git_error_last()
             {
                 let message = String( cString: error.pointee.message )
@@ -91,8 +92,21 @@ import libgit2
             {
                 print( "Failed to fetch \( self.name ) in \( self.repository?.url.path ?? "<nil>" )" )
             }
+            
+            #endif
+            
+            let message: String? =
+            {
+                if let error = git_error_last()
+                {
+                    return String( cString: error.pointee.message )
+                }
+                
+                return nil
+            }()
+            
+            self.repository?.delegate?.fetchDidFail?( for: self.url, status: Int( status ), message: message )
         }
-        #endif
         
         return status == 0
     }
