@@ -98,7 +98,7 @@ import libgit2
             oid2 = git_reference_target( ref )
         }
         
-        guard let oid1 = oid1, let oid2 = oid2 else
+        guard let local = oid1, let upstream = oid2 else
         {
             return nil
         }
@@ -106,7 +106,7 @@ import libgit2
         var ahead:  Int = 0
         var behind: Int = 0
         
-        if git_graph_ahead_behind( &ahead, &behind, self.repository?.repository, oid1, oid2 ) == 0
+        if git_graph_ahead_behind( &ahead, &behind, self.repository?.repository, local, upstream ) == 0
         {
             return GraphResult( ahead: ahead, behind: behind )
         }
