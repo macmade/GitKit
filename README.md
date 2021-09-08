@@ -1,4 +1,4 @@
-libgit
+GitKit
 ======
 
 [![Build Status](https://img.shields.io/github/workflow/status/macmade/GitKit/ci-mac?label=macOS&logo=apple)](https://github.com/macmade/GitKit/actions/workflows/ci-mac.yaml)
